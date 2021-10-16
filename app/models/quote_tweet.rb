@@ -1,0 +1,2 @@
+class QuoteTweet < ApplicationRecord
+end
