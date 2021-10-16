@@ -1,2 +1,0 @@
-class RealUser < ApplicationRecord
-end
