@@ -1,0 +1,26 @@
+<h1>架空ユーザー一覧</h1>
+<%= flash[:success] %>
+<br>
+<%= link_to "架空ユーザーの追加", virtual_user_new_path %>
+<br>
+<%= link_to "項目一覧に戻る", teacher_index_path %>
+<br>
+
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>サブネーム</th>
+    <th>ヒトコト</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @virtual_users.each do |virtual_user| %>
+  <tr>
+    <td><%= virtual_user.name %></td>
+    <td><%= virtual_user.sub_name %></td>
+    <td><%= virtual_user.catch_copy %></td>
+    <td><%= link_to "編集", virtual_user_edit_path(virtual_user) %></td>
+    <td><%= link_to "削除", "#" %></td>
+  </tr>
+<% end %>
+</table>

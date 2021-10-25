@@ -1,0 +1,25 @@
+<h1>架空ユーザーの追加</h1>
+
+<%= render 'error_message', virtual_user: @virtual_user %>
+
+<%= form_with model: @virtual_user, url: virtual_user_create_path, local: true do |form| %>
+  <%= form.label :name, '名前' %>
+  <%= form.text_field :name %>
+  <br>
+
+  <%= form.label :sub_name, 'サブネーム' %>
+  <%= form.text_field :sub_name %>
+  <br>
+
+  <%= form.label :catch_copy, 'ヒトコト' %>
+  <%= form.text_field :catch_copy %>
+  <br>
+
+  <%= form.label :image, '画像' %>
+  <%= form.file_field :image %>
+  <br>
+
+  <%= form.submit "新規作成をする" %>
+<% end %>
+
+<%= link_to "一覧に戻る", virtual_user_index_path %>
