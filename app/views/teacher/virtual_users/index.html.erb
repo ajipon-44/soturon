@@ -1,7 +1,7 @@
 <h1>架空ユーザー一覧</h1>
 <%= flash[:success] %>
 <br>
-<%= link_to "架空ユーザーの追加", virtual_user_new_path %>
+<%= link_to "架空ユーザーの追加", new_teacher_virtual_user_path %>
 <br>
 <%= link_to "項目一覧に戻る", teacher_index_path %>
 <br>
@@ -19,7 +19,7 @@
     <td><%= virtual_user.name %></td>
     <td><%= virtual_user.sub_name %></td>
     <td><%= virtual_user.catch_copy %></td>
-    <td><%= link_to "編集", virtual_user_edit_path(virtual_user) %></td>
+    <td><%= link_to "編集", edit_teacher_virtual_user_path(virtual_user) %></td>
     <td><%= link_to "削除", "#" %></td>
   </tr>
 <% end %>

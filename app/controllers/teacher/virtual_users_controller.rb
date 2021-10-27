@@ -1,17 +1,18 @@
-class VirtualUserController < ApplicationController
+class Teacher::VirtualUsersController < ApplicationController
   def index
     @virtual_users = VirtualUser.all
   end
 
   def new
+    @virtual_user = VirtualUser.new
   end
 
   def create
-    @virtual_user = VirtualUser.new(virtual_user_params)
+    @virtual_user = VirtualUser.new(name: params[:virtual_user][:name], sub_name: params[:virtual_user][:sub_name], catch_copy: params[:virtual_user][:catch_copy])
     if @virtual_user.save
-      redirect_to virtual_user_index_path
+      redirect_to teacher_virtual_users_path
     else
-      render virtual_user_new_path
+      render new_teacher_virtual_user_path
     end
   end
 
@@ -23,9 +24,9 @@ class VirtualUserController < ApplicationController
     @virtual_user = VirtualUser.find(params[:id])
     if @virtual_user.update(name: params[:virtual_user][:name], sub_name: params[:virtual_user][:sub_name], catch_copy: params[:virtual_user][:catch_copy])
       flash[:success] = "更新しました．"
-      redirect_to virtual_user_index_path
+      redirect_to teacher_virtual_users_path
     else
-      render virtual_user_edit_path
+      render 'edit'
     end
   end
 

@@ -2,7 +2,7 @@
 
 <%= render 'error_message', virtual_user: @virtual_user %>
 
-<%= form_with model: @virtual_user, url: virtual_user_update_path, local: true do |form| %>
+<%= form_with model: @virtual_user, url: teacher_virtual_user_path, local: true do |form| %>
   <%= form.label :name, '名前' %>
   <%= form.text_field :name %>
   <br>
@@ -22,4 +22,4 @@
   <%= form.submit "更新する" %>
 <% end %>
 
-<%= link_to "一覧に戻る", virtual_user_index_path %>
+<%= link_to "一覧に戻る", teacher_virtual_users_path %>

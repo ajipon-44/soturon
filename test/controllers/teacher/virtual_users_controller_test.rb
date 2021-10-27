@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VirtualUserControllerTest < ActionDispatch::IntegrationTest
+class Teacher::VirtualUsersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
