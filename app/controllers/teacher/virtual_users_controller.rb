@@ -1,6 +1,11 @@
 class Teacher::VirtualUsersController < ApplicationController
+  before_action :set_virtual_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @virtual_users = VirtualUser.all
+  end
+
+  def show
   end
 
   def new
@@ -17,11 +22,9 @@ class Teacher::VirtualUsersController < ApplicationController
   end
 
   def edit
-    @virtual_user = VirtualUser.find(params[:id])
   end
 
   def update
-    @virtual_user = VirtualUser.find(params[:id])
     if @virtual_user.update(name: params[:virtual_user][:name], sub_name: params[:virtual_user][:sub_name], catch_copy: params[:virtual_user][:catch_copy])
       flash[:success] = "更新しました．"
       redirect_to teacher_virtual_users_path
@@ -30,8 +33,21 @@ class Teacher::VirtualUsersController < ApplicationController
     end
   end
 
-  private
-    def virtual_user_params
-      params.permit(:name, :sub_name, :catch_copy)
+  def destroy
+    if @virtual_user.destroy
+      flash[:success] = "削除しました．"
+      redirect_to teacher_virtual_users_path
+    else
+      render teacher_virtual_users_path
     end
+  end
+
+  private
+  def virtual_user_params
+    params.permit(:name, :sub_name, :catch_copy)
+  end
+
+  def set_virtual_user
+    @virtual_user = VirtualUser.find(params[:id])
+  end
 end

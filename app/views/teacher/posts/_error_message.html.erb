@@ -1,0 +1,9 @@
+<% if post.present? %>
+  <div class = "alert">
+    <ul>
+      <% post.errors.full_messages.uniq.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
