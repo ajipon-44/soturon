@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_10_16_055931) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "virtual_user_id"
     t.text "body"
     t.text "image"
     t.date "date"

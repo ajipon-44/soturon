@@ -2,10 +2,16 @@ ja:
   activerecord:
     models:
       virtual_user: 架空ユーザー
+      post: 投稿
     attributes:
       virtual_user:
         name: 名前
         sub_name: サブネーム
+      post:
+        virtual_user_id: 投稿ユーザー
+        virtual_user: 投稿ユーザー
+        body: 本文
+        date: 日付
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -30,6 +30,8 @@ gem 'pry-rails'
 
 gem 'rails-i18n'
 
+gem 'annotate'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

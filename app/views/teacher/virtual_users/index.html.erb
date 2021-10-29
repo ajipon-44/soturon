@@ -13,14 +13,16 @@
     <th>ヒトコト</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
-<% @virtual_users.each do |virtual_user| %>
-  <tr>
-    <td><%= virtual_user.name %></td>
-    <td><%= virtual_user.sub_name %></td>
-    <td><%= virtual_user.catch_copy %></td>
-    <td><%= link_to "編集", edit_teacher_virtual_user_path(virtual_user) %></td>
-    <td><%= link_to "削除", "#" %></td>
-  </tr>
-<% end %>
+  <% @virtual_users.each do |virtual_user| %>
+    <tr>
+      <td><%= virtual_user.name %></td>
+      <td><%= virtual_user.sub_name %></td>
+      <td><%= virtual_user.catch_copy %></td>
+      <td><%= link_to "詳細", teacher_virtual_user_path(virtual_user) %></td>
+      <td><%= link_to "編集", edit_teacher_virtual_user_path(virtual_user) %></td>
+      <td><%= link_to "削除", teacher_virtual_user_path(virtual_user) , method: :delete, data: {confirm: "削除しますか？"} %></td>
+    </tr>
+  <% end %>
 </table>

@@ -1,0 +1,25 @@
+<h1><%= @virtual_user.name %>詳細ページ</h1>
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>サブネーム</th>
+    <th>ヒトコト</th>
+    <!--
+      <th></th>
+      <th></th>
+      <th></th>
+    -->
+  </tr>
+  <tr>
+    <td><%= @virtual_user.name %></td>
+    <td><%= @virtual_user.sub_name %></td>
+    <td><%= @virtual_user.catch_copy %></td>
+    <!--
+      <td><%= link_to "投稿", teacher_posts_path(virtual_user_id: @virtual_user.id) %></td>
+      <td><%= link_to "フォロー中", "#" %></td>
+      <td><%= link_to "フォロワー", "#" %></td>
+    -->
+  </tr>
+</table>
+
+<%= link_to "戻る", teacher_virtual_users_path %>

@@ -1,0 +1,37 @@
+<h1>架空投稿の編集</h1>
+
+<%= render 'error_message', post: @post %>
+
+<%= form_with model: @post, url: teacher_post_path, local: true do |form| %>
+  <%= form.label :virtual_user_id, '投稿ユーザー' %>
+  <%= form.collection_select(:virtual_user_id, @virtual_users, :id, :name, {prompt: "投稿ユーザーを選択してください"}) %>
+  <br>
+
+  <%= form.label :body, '本文' %>
+  <%= form.text_field :body %>
+  <br>
+
+  <%= form.label :image, '画像' %>
+  <%= form.file_field :image %>
+  <br>
+
+  <%= form.label :date, '日付' %>
+  <%= form.date_select :date %>
+  <br>
+
+  <%= form.label :good, 'いいね数' %>
+  <%= form.text_field :good %>
+  <br>
+
+  <%= form.label :retweet, 'シェア数' %>
+  <%= form.text_field :retweet %>
+  <br>
+
+  <%= form.label :quote_tweet, '引用シェア数' %>
+  <%= form.text_field :quote_tweet %>
+  <br>
+
+  <%= form.submit "更新をする" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_posts_path %>
