@@ -1,0 +1,9 @@
+<% if follow.present? %>
+  <div class = "alert">
+    <ul>
+      <% follow.errors.full_messages.uniq.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
