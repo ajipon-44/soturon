@@ -1,0 +1,17 @@
+<h1>フォローの編集</h1>
+
+<%= render 'error_message', follow: @follow %>
+
+<%= form_with model: @follow, url: teacher_follow_path, local: true do |form| %>
+  <%= form.label :virtual_user_id, 'フォローするユーザー' %>
+  <%= form.collection_select(:virtual_user_id, @virtual_users, :id, :name, {prompt: "誰がフォローしますか"}) %>
+  <br>
+
+  <%= form.label :follower_id, 'フォローされるユーザー' %>
+  <%= form.collection_select(:follower_id, @virtual_users, :id, :name, {prompt: "誰をフォローしますか"}) %>
+  <br>
+
+  <%= form.submit "更新する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_follows_path %>

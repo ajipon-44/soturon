@@ -12,6 +12,10 @@ ja:
         virtual_user: 投稿ユーザー
         body: 本文
         date: 日付
+      follow:
+        virtual_user_id: ""
+        virtual_user: フォローするユーザー
+        follower: フォローされるユーザー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

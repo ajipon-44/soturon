@@ -13,10 +13,13 @@
 ActiveRecord::Schema.define(version: 2021_10_16_055931) do
 
   create_table "follows", force: :cascade do |t|
-    t.integer "follow_user_id"
-    t.integer "follower_user_id"
+    t.integer "virtual_user_id"
+    t.integer "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["virtual_user_id", "follower_id"], name: "index_follows_on_virtual_user_id_and_follower_id"#, unique: true
+    t.index ["virtual_user_id"], name: "index_follows_on_virtual_user_id"
   end
 
   create_table "goods", force: :cascade do |t|
