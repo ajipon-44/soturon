@@ -16,6 +16,7 @@
 class Post < ApplicationRecord
   # 関連
   belongs_to :virtual_user
+  has_many :goods
 
 
   # バリデーション

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   namespace :teacher do
     resources :virtual_users
-    resources :posts
-    resources :follows
+    resources :posts, :follows, :goods, except: [:show]
   end
 end

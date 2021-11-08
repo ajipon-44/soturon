@@ -20,6 +20,9 @@ class VirtualUser < ApplicationRecord
   has_many :followings, through: :follows, source: :follower
   has_many :passive_follows, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy
   has_many :followers, through: :passive_follows, source: :virtual_user
+  has_many :posts
+  has_many :goods
+  has_many :favorites, through: :goods, source: :post
 
 
   # バリデーション

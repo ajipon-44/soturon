@@ -1,0 +1,24 @@
+<h1>いいね一覧</h1>
+<%= flash[:success] %>
+<br>
+<%= link_to "いいねの追加", new_teacher_good_path %>
+<br>
+<%= link_to "項目一覧に戻る", teacher_index_path %>
+<br>
+
+<table border="1">
+  <tr>
+    <th>いいねしたユーザー</th>
+    <th>いいねされた投稿</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @goods.each do |good| %>
+  <tr>
+    <td><%= good.virtual_user_id %></td>
+    <td><%= good.post_id %></td>
+    <td><%= link_to "編集", edit_teacher_good_path(good) %></td>
+    <td><%= link_to "削除", teacher_good_path(good), method: :delete, data: {confirm: "削除しますか？"} %></td>
+  </tr>
+<% end %>
+</table>
