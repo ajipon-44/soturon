@@ -1,0 +1,17 @@
+<h1>いいねの編集</h1>
+
+<%= render 'error_message', good: @good %>
+
+<%= form_with model: @good, url: teacher_good_path, local: true do |form| %>
+  <%= form.label :virtual_user_id, 'いいねするユーザー' %>
+  <%= form.collection_select(:virtual_user_id, @virtual_users, :id, :name, {prompt: "ユーザーを選択してください"}) %>
+  <br>
+
+  <%= form.label :post_id, 'いいねされる投稿' %>
+  <%= form.collection_select(:post_id, @posts, :id, :body, {prompt: "投稿を選択してください"}) %>
+  <br>
+
+  <%= form.submit "更新をする" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_goods_path %>

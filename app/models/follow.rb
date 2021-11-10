@@ -26,5 +26,5 @@ class Follow < ApplicationRecord
 
 
   # バリデーション
-  validates :virtual_user_id, uniqueness: { scope: :follower_id, message: "このフォロー関係はすでに存在します"}
+  validates :virtual_user_id, uniqueness: { scope: :follower_id, message: "このフォロー関係はすでに存在します" }
 end

@@ -1,0 +1,9 @@
+<% if good.present? %>
+  <div class = "alert">
+    <ul>
+      <% good.errors.full_messages.uniq.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

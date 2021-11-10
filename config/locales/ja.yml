@@ -16,6 +16,11 @@ ja:
         virtual_user_id: ""
         virtual_user: フォローするユーザー
         follower: フォローされるユーザー
+      good:
+        virtual_user: いいねするユーザー
+        post: いいねされる投稿
+        virtual_user_id: ""
+        post_id: ""
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
