@@ -1,0 +1,17 @@
+<h1>フォローの編集</h1>
+
+<%= render 'error_message', reply: @reply %>
+
+<%= form_with model: @follow, url: teacher_reply_path, local: true do |form| %>
+  <%= form.label :follower_id, 'リプライされる投稿' %>
+  <%= form.collection_select(:post_id, @posts, :id, :body, {prompt: "どの投稿に返信しますか"}) %>
+  <br>
+
+  <%= form.label :virtual_user_id, 'リプライする投稿' %>
+  <%= form.collection_select(:reply_id, @posts, :id, :body, {prompt: "なんと返信しますか"}) %>
+  <br>
+
+  <%= form.submit "更新する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_replies_path %>

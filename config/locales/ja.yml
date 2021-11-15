@@ -21,6 +21,9 @@ ja:
         post: いいねされる投稿
         virtual_user_id: ""
         post_id: ""
+      reply:
+        post: リプライされる投稿
+        #replied: リプライする投稿
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

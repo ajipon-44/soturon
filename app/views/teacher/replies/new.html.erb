@@ -1,0 +1,17 @@
+<h1>リプライの追加</h1>
+
+<%= render 'error_message', reply: @reply %>
+
+<%= form_with model: @reply, url: teacher_replies_path, local: true do |form| %>
+  <%= form.label :post_id, 'リプライされる投稿' %>
+  <%= form.collection_select(:post_id, @posts, :id, :body, {prompt: "どの投稿に返信しますか"}) %>
+  <br>
+
+  <%= form.label :reply_id, 'リプライする投稿' %>
+  <%= form.collection_select(:reply_id, @posts, :id, :body, {prompt: "なんと返信しますか"}) %>
+  <br>
+
+  <%= form.submit "新規作成をする" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_replies_path %>
