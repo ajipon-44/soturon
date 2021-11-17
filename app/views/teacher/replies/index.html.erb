@@ -14,7 +14,7 @@
   </tr>
 <% @replies.each do |reply| %>
   <tr>
-    <td><%= reply.post_id %> が <%= reply.reply_id %> をフォローしています</td>
+    <td><%= reply.replied_body %> に <%= reply.post_body %> とリプライしました</td>
     <td><%= link_to "編集", edit_teacher_reply_path(reply) %></td>
     <td><%= link_to "削除", teacher_reply_path(reply), method: :delete, data: {confirm: "削除しますか？"} %></td>
   </tr>

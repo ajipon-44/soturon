@@ -11,12 +11,11 @@ class Teacher::RepliesController < ApplicationController
   end
 
   def create
-    @reply = Reply.new(post_id: params[:reply][:post_id], reply_id: params[:reply][:reply_id])
+    @reply = Reply.new(post_id: params[:reply][:post_id], replied_id: params[:reply][:replied_id])
     if @reply.save
       flash[:success] = "作成しました．"
       redirect_to teacher_replies_path
     else
-      binding.pry
       render new_teacher_reply_path
     end
   end
@@ -25,7 +24,7 @@ class Teacher::RepliesController < ApplicationController
   end
 
   def update
-    if @reply.update(post_id: params[:reply][:post_id], reply_id: params[:reply][:reply_id])
+    if @reply.update(post_id: params[:reply][:post_id], replied_id: params[:reply][:replied_id])
       flash[:success] = "更新しました．"
       redirect_to teacher_replies_path
     else

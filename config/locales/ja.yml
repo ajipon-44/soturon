@@ -22,8 +22,9 @@ ja:
         virtual_user_id: ""
         post_id: ""
       reply:
-        post: リプライされる投稿
-        #replied: リプライする投稿
+        post: 返信内容となる投稿
+        replied: 返信対象となる投稿
+        post_id: ""
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

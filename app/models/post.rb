@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   has_many :goods
   has_many :replies, dependent: :destroy
   has_many :replyings, through: :replies, source: :replied
-  has_many :passive_replies, class_name: 'Reply', foreign_key: 'reply_id', dependent: :destroy
+  has_many :passive_replies, class_name: 'Reply', foreign_key: 'replied_id', dependent: :destroy
   has_many :replieds, through: :passive_replies, source: :post
 
 

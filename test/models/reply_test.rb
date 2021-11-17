@@ -6,13 +6,13 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  post_id    :integer
-#  reply_id   :integer
+#  replied_id :integer
 #
 # Indexes
 #
-#  index_replies_on_post_id               (post_id)
-#  index_replies_on_post_id_and_reply_id  (post_id,reply_id) UNIQUE
-#  index_replies_on_reply_id              (reply_id)
+#  index_replies_on_post_id                 (post_id)
+#  index_replies_on_post_id_and_replied_id  (post_id,replied_id) UNIQUE
+#  index_replies_on_replied_id              (replied_id)
 #
 require 'test_helper'
 
