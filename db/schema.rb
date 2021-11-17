@@ -57,10 +57,13 @@ ActiveRecord::Schema.define(version: 2021_10_16_055931) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.integer "reply_post_id"
-    t.integer "replied_post_id"
+    t.integer "post_id"
+    t.integer "replied_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id", "replied_id"], name: "index_replies_on_post_id_and_replied_id", unique: true
+    t.index ["post_id"], name: "index_replies_on_post_id"
+    t.index ["replied_id"], name: "index_replies_on_replied_id"
   end
 
   create_table "retweets", force: :cascade do |t|
