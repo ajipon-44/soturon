@@ -23,6 +23,12 @@ class Post < ApplicationRecord
   has_many :replieds, through: :passive_replies, source: :post
 
 
+  # 委譲
+  def virtual_user_name; virtual_user.name; end
+  def virtual_user_sub_name; virtual_user.sub_name; end
+  def goods_count; goods.count; end
+
+
   # バリデーション
   validates :body, presence: true
   validates :date, presence: true

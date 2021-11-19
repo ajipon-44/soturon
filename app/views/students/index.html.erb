@@ -1,0 +1,11 @@
+<body>
+  <div class="full-page char-white">
+    <% @posts.each do |post| %>
+      <%= post.virtual_user_name %>
+      <%= post.virtual_user_sub_name %>
+      <%= post.date %>
+      <%= post.body %>
+      <br>
+    <% end %>
+  </div>
+</body>

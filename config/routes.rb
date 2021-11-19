@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :virtual_users
     resources :posts, :follows, :goods, :replies, except: [:show]
   end
+
+  root 'students#index'
 end
