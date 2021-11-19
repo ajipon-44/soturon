@@ -9,10 +9,15 @@ body {
 .full-page {
   width: 100vw;
   height: 100vh;
-
   background-color: black;
 }
 
 .char-white{
   color: white;
+}
+
+.post-wrapper{
+  border: solid;
+  border-radius: 8px;
+  width: 40%;
 }

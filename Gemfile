@@ -32,6 +32,8 @@ gem 'rails-i18n'
 
 gem 'annotate'
 
+gem 'font-awesome-sass'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
