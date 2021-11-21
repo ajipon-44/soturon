@@ -13,7 +13,11 @@ class Teacher::VirtualUsersController < ApplicationController
   end
 
   def create
-    @virtual_user = VirtualUser.new(name: params[:virtual_user][:name], sub_name: params[:virtual_user][:sub_name], catch_copy: params[:virtual_user][:catch_copy])
+    @virtual_user = VirtualUser.new(
+      name: params[:virtual_user][:name],
+      sub_name: params[:virtual_user][:sub_name],
+      catch_copy: params[:virtual_user][:catch_copy]
+    )
     if @virtual_user.save
       redirect_to teacher_virtual_users_path
     else
@@ -25,7 +29,11 @@ class Teacher::VirtualUsersController < ApplicationController
   end
 
   def update
-    if @virtual_user.update(name: params[:virtual_user][:name], sub_name: params[:virtual_user][:sub_name], catch_copy: params[:virtual_user][:catch_copy])
+    if @virtual_user.update(
+      name: params[:virtual_user][:name],
+      sub_name: params[:virtual_user][:sub_name],
+      catch_copy: params[:virtual_user][:catch_copy]
+    )
       flash[:success] = "更新しました．"
       redirect_to teacher_virtual_users_path
     else
