@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 2021_10_16_055931) do
   create_table "posts", force: :cascade do |t|
     t.integer "virtual_user_id"
     t.text "body"
-    t.text "image"
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "image4"
     t.date "date"
     t.integer "good"
     t.integer "retweet"
@@ -44,14 +47,6 @@ ActiveRecord::Schema.define(version: 2021_10_16_055931) do
   create_table "quote_tweets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "real_users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-    t.integer "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,11 +93,10 @@ ActiveRecord::Schema.define(version: 2021_10_16_055931) do
   create_table "virtual_users", force: :cascade do |t|
     t.string "name"
     t.string "sub_name"
-    t.string "password"
     t.integer "follow"
     t.integer "follower"
     t.text "catch_copy"
-    t.text "image"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

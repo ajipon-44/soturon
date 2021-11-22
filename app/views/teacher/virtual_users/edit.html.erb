@@ -15,6 +15,18 @@
   <%= form.text_field :catch_copy %>
   <br>
 
+  <%= form.label :image, '画像' %>
+  <%= form.file_field :image %>
+  <br>
+
+  現在の画像
+  <% if @virtual_user.image? %>
+    <%= image_tag "/user_images/#{@virtual_user.id}.jpg", size: '40x40' %>
+  <% else %>
+    <%= image_tag 'default_icon.jpg', size: '40x40' %>
+  <% end %>
+  <br>
+
   <%= form.submit "更新する" %>
 <% end %>
 

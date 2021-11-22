@@ -6,9 +6,8 @@
 #  catch_copy :text
 #  follow     :integer
 #  follower   :integer
-#  image      :text
+#  image      :string
 #  name       :string
-#  password   :string
 #  sub_name   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
