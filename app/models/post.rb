@@ -26,6 +26,10 @@ class Post < ApplicationRecord
   has_many :replieds, through: :passive_replies, source: :post
 
 
+  # 委譲
+  def goods_count; goods.count; end
+
+
   # バリデーション
   validates :body, presence: true
   validates :date, presence: true

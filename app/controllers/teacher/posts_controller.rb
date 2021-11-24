@@ -13,8 +13,17 @@ class Teacher::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(virtual_user_id: params[:post][:virtual_user_id], body: params[:post][:body], image: params[:post][:image], date: @time, good: params[:post][:good], retweet: params[:post][:retweet], quote_tweet: params[:post][:quote_tweet])
+    @post = Post.new(
+      virtual_user_id: params[:post][:virtual_user_id],
+      body: params[:post][:body],
+      image1: params[:post][:image1],
+      image2: params[:post][:image2],
+      image3: params[:post][:image3],
+      image4: params[:post][:image4],
+      date: @time,
+    )
     if @post.save
+      set_image
       flash[:success] = "作成しました．"
       redirect_to teacher_posts_path
     else
@@ -26,7 +35,16 @@ class Teacher::PostsController < ApplicationController
   end
 
   def update
-    if @post.update(virtual_user_id: params[:post][:virtual_user_id], body: params[:post][:body], image: params[:post][:image], date: @time, good: params[:post][:good], retweet: params[:post][:retweet], quote_tweet: params[:post][:quote_tweet])
+    set_image
+    if @post.update(
+      virtual_user_id: params[:post][:virtual_user_id],
+      body: params[:post][:body],
+      image1: params[:post][:image1],
+      image2: params[:post][:image2],
+      image3: params[:post][:image3],
+      image4: params[:post][:image4],
+      date: @time,
+    )
       flash[:success] = "更新しました．"
       redirect_to teacher_posts_path
     else
@@ -54,6 +72,17 @@ class Teacher::PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_image
+    @images = [params[:post][:image1], params[:post][:image2], params[:post][:image3], params[:post][:image4]]
+    @images = @images.compact
+    if @images.length != 0
+      Dir.mkdir("./public/post_images/#{@post.id}") if !Dir.exist?("./public/post_images/#{@post.id}")
+      @images.each.with_index(1) do |image, i|
+        File.binwrite("public/post_images/#{@post.id}/#{i}.jpg", image.read)
+      end
+    end
   end
 
   # def set_virtual_user
