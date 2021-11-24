@@ -10,7 +10,10 @@
   <tr>
     <th>投稿ユーザー</th>
     <th>本文</th>
-    <th>画像</th>
+    <th>画像1</th>
+    <th>画像2</th>
+    <th>画像3</th>
+    <th>画像4</th>
     <th>日付</th>
     <th>いいね数</th>
     <th>シェア数</th>
@@ -22,9 +25,28 @@
   <tr>
     <td><%= post.virtual_user_id %></td>
     <td><%= post.body %></td>
-    <td><%= post.image %></td>
+    <td>
+      <% if !post.image1.nil? %>
+        <%= image_tag "/post_images/#{post.id}/1.jpg", size: '40x40' %>
+      <% end %>
+    </td>
+    <td>
+      <% if !post.image2.nil? %>
+        <%= image_tag "/post_images/#{post.id}/2.jpg", size: '40x40' %>
+      <% end %>
+    </td>
+    <td>
+      <% if !post.image3.nil? %>
+        <%= image_tag "/post_images/#{post.id}/3.jpg", size: '40x40' %>
+      <% end %>
+    </td>
+    <td>
+      <% if !post.image4.nil? %>
+        <%= image_tag "/post_images/#{post.id}/4.jpg", size: '40x40' %>
+      <% end %>
+    </td>
     <td><%= post.date %></td>
-    <td><%= post.good %></td>
+    <td><%= post.goods_count %></td>
     <td><%= post.retweet %></td>
     <td><%= post.quote_tweet %></td>
     <td><%= link_to "編集", edit_teacher_post_path(post) %></td>

@@ -6,7 +6,10 @@
 #  body            :text
 #  date            :date
 #  good            :integer
-#  image           :text
+#  image1          :string
+#  image2          :string
+#  image3          :string
+#  image4          :string
 #  quote_tweet     :integer
 #  retweet         :integer
 #  created_at      :datetime         not null
@@ -21,6 +24,10 @@ class Post < ApplicationRecord
   has_many :replyings, through: :replies, source: :replied
   has_many :passive_replies, class_name: 'Reply', foreign_key: 'replied_id', dependent: :destroy
   has_many :replieds, through: :passive_replies, source: :post
+
+
+  # 委譲
+  def goods_count; goods.count; end
 
 
   # バリデーション
