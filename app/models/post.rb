@@ -6,7 +6,10 @@
 #  body            :text
 #  date            :date
 #  good            :integer
-#  image           :text
+#  image1          :string
+#  image2          :string
+#  image3          :string
+#  image4          :string
 #  quote_tweet     :integer
 #  retweet         :integer
 #  created_at      :datetime         not null

@@ -4,21 +4,23 @@
     <th>名前</th>
     <th>サブネーム</th>
     <th>ヒトコト</th>
-    <!--
-      <th></th>
-      <th></th>
-      <th></th>
-    -->
+    <th>フォロー中</th>
+    <th>フォロワー</th>
+    <th>アイコン</th>
   </tr>
   <tr>
     <td><%= @virtual_user.name %></td>
     <td><%= @virtual_user.sub_name %></td>
     <td><%= @virtual_user.catch_copy %></td>
-    <!--
-      <td><%= link_to "投稿", teacher_posts_path(virtual_user_id: @virtual_user.id) %></td>
-      <td><%= link_to "フォロー中", "#" %></td>
-      <td><%= link_to "フォロワー", "#" %></td>
-    -->
+    <td><%= @virtual_user.followings_count %></td>
+    <td><%= @virtual_user.followers_count %></td>
+    <td>
+      <% if @virtual_user.image? %>
+        <%= image_tag "/user_images/#{@virtual_user.id}.jpg", size: '40x40' %>
+      <% else %>
+        <%= image_tag 'default_icon.jpg', size: '40x40' %>
+      <% end %>
+    </td>
   </tr>
 </table>
 

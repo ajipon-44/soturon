@@ -6,9 +6,8 @@
 #  catch_copy :text
 #  follow     :integer
 #  follower   :integer
-#  image      :text
+#  image      :string
 #  name       :string
-#  password   :string
 #  sub_name   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -22,6 +21,11 @@ class VirtualUser < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :virtual_user
   has_many :goods
   has_many :favorites, through: :goods, source: :post
+
+
+  # 委譲
+  def followings_count; followings.count; end
+  def followers_count; followers.count; end
 
 
   # バリデーション
