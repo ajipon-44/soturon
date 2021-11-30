@@ -1,15 +1,32 @@
 <body>
-  <div class="full-page char-white">
+  <div class="full-page">
+    <h1>投稿一覧</h1>
     <% @posts.each do |post| %>
       <div class="post-wrapper">
-        <%= post.virtual_user_name %>
-        @<%= post.virtual_user_sub_name %>
-        <%= post.date %>
-        <%= post.body %>
-        <i class="far fa-comment"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-upload"></i>
+        <div class="icon-wrapper">
+          <% if post.virtual_user_image %>
+            <%= image_tag "/user_images/#{post.virtual_user_id}.jpg", size: '40x40' %> <!-- virtual_user_id委譲メソッドがなぜか動作している -->
+          <% else %>
+            <%= image_tag 'default_icon.jpg', size: '40x40' %>
+          <% end %>
+        </div>
+        <div class="post-info-wrapper">
+          <div class="top-wrapper">
+            <%= link_to "#" do %>
+              <%= post.virtual_user_name %>
+              @<%= post.virtual_user_sub_name %>
+            <% end %>
+            <%= post.date %>
+          </div>
+          <div class="body-wrapper">
+            <%= link_to "#" do %>
+              <%= post.body %>
+            <% end %>
+
+            <%= render 'post_image', post: post %>
+          </div>
+          <%= render 'bottom_icons', post: post %>
+        </div>
       </div>
       <br>
     <% end %>

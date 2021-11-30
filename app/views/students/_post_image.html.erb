@@ -1,0 +1,22 @@
+<% if !post.image1.nil? %>
+  <br>
+  <%= link_to "/post_images/#{post.id}/1.jpg", "data-lightbox": "/post_images/#{post.id}/1.jpg" do %>
+    <%= image_tag "/post_images/#{post.id}/1.jpg", size: '80x80' %>
+  <% end %>
+<% end %>
+<% if !post.image2.nil? %>
+  <%= link_to "/post_images/#{post.id}/2.jpg", "data-lightbox": "/post_images/#{post.id}/2.jpg" do %>
+    <%= image_tag "/post_images/#{post.id}/2.jpg", size: '80x80' %>
+  <% end %>
+<% end %>
+<% if !post.image3.nil? %>
+  <br>
+  <%= link_to "/post_images/#{post.id}/3.jpg", "data-lightbox": "/post_images/#{post.id}/3.jpg" do %>
+    <%= image_tag "/post_images/#{post.id}/3.jpg", size: '80x80' %>
+  <% end %>
+<% end %>
+<% if !post.image4.nil? %>
+  <%= link_to "/post_images/#{post.id}/4.jpg", "data-lightbox": "/post_images/#{post.id}/4.jpg" do %>
+    <%= image_tag "/post_images/#{post.id}/4.jpg", size: '80x80' %>
+  <% end %>
+<% end %>

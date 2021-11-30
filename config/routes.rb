@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   root 'students#index'
+  resources :students, except: [:index]
 end

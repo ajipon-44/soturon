@@ -16,7 +16,7 @@
 <% @goods.each do |good| %>
   <tr>
     <td><%= good.virtual_user_id %></td>
-    <td><%= good.post_id %></td>
+    <td><%= good.post_body %></td>
     <td><%= link_to "編集", edit_teacher_good_path(good) %></td>
     <td><%= link_to "削除", teacher_good_path(good), method: :delete, data: {confirm: "削除しますか？"} %></td>
   </tr>

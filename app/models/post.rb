@@ -30,6 +30,9 @@ class Post < ApplicationRecord
   def virtual_user_name; virtual_user.name; end
   def virtual_user_sub_name; virtual_user.sub_name; end
   def goods_count; goods.count; end
+  def virtual_user_image; virtual_user.image; end
+  # def virtual_user_id; virtual_user.id; end # なぜかエラー吐く
+  def replieds_count; replieds.count; end
 
 
   # バリデーション
