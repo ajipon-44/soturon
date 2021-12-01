@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :posts, :follows, :goods, :replies, except: [:show]
   end
 
-  root 'students#index'
-  resources :students, except: [:index]
+  root 'student/posts#index'
+  namespace :student do
+    resources :posts, except: [:index]
+    resources :virtual_users, only: [:show]
+  end
 end

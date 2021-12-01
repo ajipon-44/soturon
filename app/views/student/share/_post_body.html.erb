@@ -8,20 +8,20 @@
   </div>
   <div class="post-info-wrapper">
     <div class="top-wrapper">
-      <%= link_to "#", class: 'delete_link_decoration' do %>
+      <%= link_to student_virtual_user_path(post.virtual_user_id), class: 'delete_link_decoration' do %>
         <%= post.virtual_user_name %>
         @<%= post.virtual_user_sub_name %>
       <% end %>
       <%= post.date %>
     </div>
     <div class="body-wrapper">
-      <%= link_to student_path(post.id), class: 'delete_link_decoration' do %>
+      <%= link_to student_post_path(post.id), class: 'delete_link_decoration' do %>
         <%= post.body %>
       <% end %>
 
-      <%= render 'post_image', post: post %>
+      <%= render 'student/share/post_image', post: post %>
     </div>
-    <%= render 'bottom_icons', post: post %>
+    <%= render 'student/share/bottom_icons', post: post %>
   </div>
 </div>
 <br>

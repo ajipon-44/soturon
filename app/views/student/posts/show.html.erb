@@ -1,12 +1,12 @@
 <h1>スレッド</h1>
 <%= link_to "一覧に戻る", root_path %>
 
-<%= render 'post_body', post: @post %>
+<%= render 'student/share/post_body', post: @post %>
 
 <% if !@replieds.empty? %>
   <h1>返信</h1>
   <% @replieds.each do |replied| %>
-    <%= render 'post_body', post: replied %>
+    <%= render 'student/share/post_body', post: replied %>
   <% end %>
 <% else %>
   返信はありません
