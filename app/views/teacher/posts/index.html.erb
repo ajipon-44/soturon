@@ -23,7 +23,7 @@
   </tr>
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.virtual_user_id %></td>
+    <td><%= post.virtual_user_id %></td> <!-- virtual_user_id委譲メソッドがなぜか動作している -->
     <td><%= post.body %></td>
     <td>
       <% if !post.image1.nil? %>

@@ -14,6 +14,9 @@ class Good < ApplicationRecord
   belongs_to :post
 
 
+  # 委譲
+  def post_body; post.body; end
+
   # バリデーション
   validates :virtual_user_id, presence: true
   validates :post_id, presence: true

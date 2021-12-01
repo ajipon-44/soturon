@@ -1,0 +1,27 @@
+<div class="post-wrapper">
+  <div class="icon-wrapper">
+    <% if post.virtual_user_image %>
+      <%= image_tag "/user_images/#{post.virtual_user_id}.jpg", size: '40x40' %> <!-- virtual_user_id委譲メソッドがなぜか動作している -->
+    <% else %>
+      <%= image_tag 'default_icon.jpg', size: '40x40' %>
+    <% end %>
+  </div>
+  <div class="post-info-wrapper">
+    <div class="top-wrapper">
+      <%= link_to student_virtual_user_path(post.virtual_user_id), class: 'delete_link_decoration' do %>
+        <%= post.virtual_user_name %>
+        @<%= post.virtual_user_sub_name %>
+      <% end %>
+      <%= post.date %>
+    </div>
+    <div class="body-wrapper">
+      <%= link_to student_post_path(post.id), class: 'delete_link_decoration' do %>
+        <%= post.body %>
+      <% end %>
+
+      <%= render 'student/share/post_image', post: post %>
+    </div>
+    <%= render 'student/share/bottom_icons', post: post %>
+  </div>
+</div>
+<br>

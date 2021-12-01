@@ -1,0 +1,12 @@
+<div class ="bottom-wrapper">
+  <i class="far fa-comment"></i>
+  <% if post.replieds_count > 0 %>
+    <%= post.replieds_count %>
+  <% end %>
+  <i class="fas fa-retweet"></i>
+  <i class="far fa-heart"></i>
+  <% if post.goods_count > 0 %>
+    <%= post.goods_count %>
+  <% end %>
+  <i class="fas fa-upload"></i>
+</div>

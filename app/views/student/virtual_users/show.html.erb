@@ -1,0 +1,22 @@
+<div class="icon-wrapper">
+  <% if @virtual_user.image %>
+    <%= image_tag "/user_images/#{@virtual_user.id}.jpg", size: '100x100' %>
+  <% else %>
+    <%= image_tag 'default_icon.jpg', size: '100x100' %>
+  <% end %>
+</div>
+
+<%= @virtual_user.name %>
+@<%= @virtual_user.sub_name %>
+<%= @virtual_user.catch_copy %>
+<%= @virtual_user.followings_count %>フォロー中
+<%= @virtual_user.followers_count %>フォロワー
+
+<% if @posts %>
+  <h1><%= @virtual_user.name %>の投稿</h1>
+  <% @posts.each do |post| %>
+    <%= render 'student/share/post_body', post: post %>
+  <% end %>
+<% else %>
+  このユーザーの投稿はありません
+<% end %>

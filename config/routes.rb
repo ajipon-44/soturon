@@ -8,4 +8,10 @@ Rails.application.routes.draw do
     resources :virtual_users
     resources :posts, :follows, :goods, :replies, except: [:show]
   end
+
+  root 'student/posts#index'
+  namespace :student do
+    resources :posts, except: [:index]
+    resources :virtual_users, only: [:show]
+  end
 end
