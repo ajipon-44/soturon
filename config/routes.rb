@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root 'student/posts#index'
   namespace :student do
-    resources :posts, except: [:index]
+    resources :posts, only: [:index, :show]
     resources :virtual_users, only: [:show]
   end
 end
