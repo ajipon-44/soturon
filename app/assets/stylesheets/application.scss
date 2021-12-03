@@ -16,6 +16,10 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
-.delete_link_decoration{
+.delete_link_decoration {
   text-decoration: none;
+}
+
+.delete_link_color {
+  color: inherit;
 }

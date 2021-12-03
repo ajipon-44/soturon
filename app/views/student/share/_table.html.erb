@@ -1,0 +1,37 @@
+<table class="st-tbl1">
+  <thead>
+    <tr>
+      <th>
+        <% if @action != "index" %>
+          <%= link_to root_path do %>
+            <i class="fas fa-arrow-left"></i>
+          <% end %>
+        <% end %>
+
+        <%= @theme %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @action == "show" && params[:controller] == "student/posts" %>
+      <tr>
+        <td><%= render 'student/share/post_body', post: @post %></td>
+      </tr>
+      <tr>
+        <td>返信</td>
+      </tr>
+    <% elsif @action == "show" && params[:controller] == "student/virtual_users" %>
+      <tr>
+        <td>
+          <%= render 'student/virtual_users/profile', virtual_user: @virtual_user %>
+        </td>
+      </tr>
+    <% end %>
+
+    <% posts.each do |post| %>
+      <tr>
+        <td><%= render 'student/share/post_body', post: post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

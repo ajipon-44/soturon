@@ -1,0 +1,23 @@
+<div class="profile-wrapper">
+  <div class="icon-wrapper">
+    <% if virtual_user.image %>
+      <%= image_tag "/user_images/#{virtual_user.id}.jpg", size: '100x100' %>
+    <% else %>
+      <%= image_tag 'default_icon.jpg', size: '100x100' %>
+    <% end %>
+  </div>
+
+  <div class="profile-text">
+    <div>
+      <span class="font-bold"><%= virtual_user.name %></span>
+      <span class="gray-character">@<%= virtual_user.sub_name %></span>
+    </div>
+    <div>
+      <%= virtual_user.catch_copy %>
+    </div>
+    <div>
+      <span class="font-bold"><%= virtual_user.followings_count %></span><span class="gray-character">フォロー中</span>
+      <span class="font-bold"><%= virtual_user.followers_count %></span><span class="gray-character">フォロワー</span>
+    </div>
+  </div>
+</div>

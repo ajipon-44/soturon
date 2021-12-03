@@ -8,14 +8,19 @@
   </div>
   <div class="post-info-wrapper">
     <div class="top-wrapper">
-      <%= link_to student_virtual_user_path(post.virtual_user_id), class: 'delete_link_decoration' do %>
-        <%= post.virtual_user_name %>
-        @<%= post.virtual_user_sub_name %>
+      <%= link_to student_virtual_user_path(post.virtual_user_id), class: 'delete_link_decoration delete_link_color' do %>
+        <span class="font-bold"><%= post.virtual_user_name %></span>
+        <span class="gray-character">@<%= post.virtual_user_sub_name %></span>
       <% end %>
-      <%= post.date %>
+      <span class="gray-character"><%= post.date %></span>
     </div>
     <div class="body-wrapper">
-      <%= link_to student_post_path(post.id), class: 'delete_link_decoration' do %>
+      <% if !post.replyings.empty? %>
+        <%= link_to student_virtual_user_path(post.replyings_virtual_user_id), class: 'delete_link_decoration' do %>
+          @<%= post.replyings_virtual_user_name %>
+        <% end %>
+      <% end %>
+      <%= link_to student_post_path(post.id), class: 'delete_link_decoration delete_link_color' do %>
         <%= post.body %>
       <% end %>
 
@@ -24,4 +29,3 @@
     <%= render 'student/share/bottom_icons', post: post %>
   </div>
 </div>
-<br>
