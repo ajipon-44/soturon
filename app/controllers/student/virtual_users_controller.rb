@@ -1,6 +1,7 @@
 class Student::VirtualUsersController < ApplicationController
   before_action :set_virtual_user, only: [:show]
   before_action :set_virtual_users_posts, only: [:show]
+  before_action :set_action, only: [:show]
 
   def show
   end
@@ -12,5 +13,12 @@ class Student::VirtualUsersController < ApplicationController
 
   def set_virtual_users_posts
     @posts = @virtual_user.posts.order(date: :desc)
+  end
+
+  def set_action
+    @action = params[:action]
+    if @action == "show"
+      @theme = @virtual_user.name
+    end
   end
 end

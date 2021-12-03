@@ -1,8 +1,1 @@
-<body>
-  <div class="full-page">
-    <h1>投稿一覧</h1>
-    <% @posts.each do |post| %>
-      <%= render 'student/share/post_body', post: post %>
-    <% end %>
-  </div>
-</body>
+<%= render 'student/share/table', posts: @posts %>

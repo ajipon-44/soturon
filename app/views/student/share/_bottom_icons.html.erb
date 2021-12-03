@@ -1,12 +1,21 @@
-<div class ="bottom-wrapper">
-  <i class="far fa-comment"></i>
-  <% if post.replieds_count > 0 %>
-    <%= post.replieds_count %>
-  <% end %>
-  <i class="fas fa-retweet"></i>
-  <i class="far fa-heart"></i>
-  <% if post.goods_count > 0 %>
-    <%= post.goods_count %>
-  <% end %>
-  <i class="fas fa-upload"></i>
+<div class="bottom-wrapper gray-character">
+  <div>
+    <i class="far fa-comment"></i>
+    <% if post.replieds_count > 0 %>
+      <%= post.replieds_count %>
+    <% end %>
+  </div>
+  <div>
+    <i class="fas fa-retweet"></i>
+  </div>
+  <div>
+    <i class="far fa-heart">
+    <% if post.goods_count > 0 %>
+      <%= post.goods_count %>
+    <% end %>
+  </i>
+  </div>
+  <div>
+    <i class="fas fa-upload"></i>
+  </div>
 </div>

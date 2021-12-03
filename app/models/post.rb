@@ -33,6 +33,8 @@ class Post < ApplicationRecord
   def virtual_user_image; virtual_user.image; end
   # def virtual_user_id; virtual_user.id; end # なぜかエラー吐く
   def replieds_count; replieds.count; end
+  def replyings_virtual_user_name; replyings.first.virtual_user.name; end
+  def replyings_virtual_user_id; replyings.first.virtual_user.id; end
 
 
   # バリデーション
