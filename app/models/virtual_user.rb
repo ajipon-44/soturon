@@ -21,6 +21,7 @@ class VirtualUser < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :virtual_user
   has_many :goods
   has_many :favorites, through: :goods, source: :post
+  has_one :answer, dependent: :destroy
 
 
   # 委譲

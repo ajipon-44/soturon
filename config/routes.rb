@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :teacher do
     resources :virtual_users
-    resources :posts, :follows, :goods, :replies, except: [:show]
+    resources :posts, :follows, :goods, :replies, :answers, except: [:show]
   end
 
   root 'student/posts#index'

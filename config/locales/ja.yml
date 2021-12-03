@@ -25,6 +25,10 @@ ja:
         post: 返信内容となる投稿
         replied: 返信対象となる投稿
         post_id: ""
+      answer:
+        virtual_user: "架空ユーザー"
+        virtual_user_id: "このユーザーの答え"
+        danger_level: "危険度"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
