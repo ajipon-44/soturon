@@ -1,0 +1,16 @@
+<div class="answer-wrapper">
+  <h1>問題解答</h1>
+  <h4 class="answer-label-title">それぞれのユーザーに対する危険度を解答してください</h4>
+  <br>
+  <%= form_with model: @answer, url: student_answer_answer_check_path, local: true do |form| %>
+    <% @virtual_users.each do |virtual_user| %>
+      <p class="answer-label-title"><%= form.label :virtual_user_id, virtual_user.name %>の危険度</p>
+
+      <%= form.label :danger_level, '危険度' %>
+      <%= form.select(:"danger_level[#{virtual_user.id}]", [["原状情報の流出はない", 1], ["今後の投稿次第では危険", 2], ["個人情報が流出している", 3]], {prompt: "危険度を選択してください"}) %>
+      <br>
+      <br>
+    <% end %>
+    <%= form.submit "答え合わせ" %>
+  <% end %>
+</div>

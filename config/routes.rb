@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   namespace :student do
     resources :posts, only: [:index, :show]
     resources :virtual_users, only: [:show]
+    resource :answer, only: [:show]
+    post 'answer/answer_check', to: 'answers#answer_check'
+    get 'answer/result', to: 'answers#result'
   end
 end
