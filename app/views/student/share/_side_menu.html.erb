@@ -1,12 +1,21 @@
 <div class="side_menu-zone">
   <div class="side_menu-wrapper">
-    <div class="side_menu-text">
-    　　使い方
-    </div>
-    <div class="side_menu-text">
-      <%= link_to "", class: 'side_menu-text delete_link_decoration delete_link_color' do %>
-    　　解答
+    <% if params[:controller] == "student/answers" %>
+      <%= link_to root_path, class: 'side_menu-text delete_link_decoration delete_link_color' do %>
+        ホーム
       <% end %>
-    </div>
+    <% else %>
+      <div class="side_menu-text">
+        使い方
+        <%# 保留 = link_to "default_icon.jpg", "data-lightbox": "default_icon.jpg" do %>
+          <%#= image_tag "default_icon.jpg", size: '40x40' %>
+        <%# end %>
+      </div>
+      <div class="side_menu-text">
+        <%= link_to student_answer_path, class: 'side_menu-text delete_link_decoration delete_link_color' do %>
+          解答
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

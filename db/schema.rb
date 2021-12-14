@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_055931) do
+ActiveRecord::Schema.define(version: 2021_12_03_073010) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "virtual_user_id"
+    t.integer "danger_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "follows", force: :cascade do |t|
     t.integer "virtual_user_id"

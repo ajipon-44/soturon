@@ -81,3 +81,20 @@ table.st-tbl1 {
     font-size: 25px;
   }
 }
+
+.answer-wrapper{
+  text-align: left;
+	//position: relative;
+	//border-collapse: collapse;
+  width: 40%;
+  margin: 0 auto;
+  border: 3px solid;
+  border-color: gray;
+  border-radius: 1%;
+  padding: 0.7%;
+}
+
+.answer-label-title {
+  border-bottom: solid 2px #555;
+  margin: 0;
+}

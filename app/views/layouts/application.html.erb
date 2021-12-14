@@ -14,7 +14,9 @@
   </head>
 
   <body>
-    <%= render 'student/share/side_menu' %>
+    <% if params[:controller].include?("student") %>
+      <%= render 'student/share/side_menu' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

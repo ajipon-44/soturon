@@ -23,7 +23,8 @@ class Teacher::VirtualUsersController < ApplicationController
       if params[:virtual_user][:image]
         set_image
       end
-      redirect_to teacher_virtual_users_path
+      flash[:success] = "新規作成したユーザーの危険度を設定してください"
+      redirect_to new_teacher_answer_path
     else
       render new_teacher_virtual_user_path
     end
@@ -51,7 +52,9 @@ class Teacher::VirtualUsersController < ApplicationController
 
   def destroy
     if @virtual_user.destroy
-      File.delete("public/user_images/#{@virtual_user.id}.jpg")
+      if File.exist?("public/user_images/#{@virtual_user.id}.jpg")
+        File.delete("public/user_images/#{@virtual_user.id}.jpg")
+      end
       flash[:success] = "削除しました．"
       redirect_to teacher_virtual_users_path
     else

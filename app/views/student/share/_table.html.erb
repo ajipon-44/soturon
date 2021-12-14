@@ -20,7 +20,7 @@
       <tr>
         <td>返信</td>
       </tr>
-    <% elsif @action == "show" && params[:controller] == "student/virtual_users" %>
+    <% elsif params[:controller] == "student/virtual_users" %>
       <tr>
         <td>
           <%= render 'student/virtual_users/profile', virtual_user: @virtual_user %>

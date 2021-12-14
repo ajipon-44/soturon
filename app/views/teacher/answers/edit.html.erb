@@ -1,0 +1,17 @@
+<h1>答えの編集</h1>
+
+<%= render 'error_message', answer: @answer %>
+
+<%= form_with model: @answer, url: teacher_answer_path, local: true do |form| %>
+  <%= form.label :virtual_user_id, 'ユーザー' %>
+  <%= form.collection_select(:virtual_user_id, @virtual_users, :id, :name, {prompt: "ユーザーを選択してください"}) %>
+  <br>
+
+  <%= form.label :danger_level, '危険度' %>
+  <%= form.select(:danger_level, [["原状情報の流出はない", 1], ["今後の投稿次第では危険", 2], ["個人情報が流出している", 3]], {prompt: "危険度を選択してください"}) %>
+  <br>
+
+  <%= form.submit "更新をする" %>
+<% end %>
+
+<%= link_to "一覧に戻る", teacher_answers_path %>
