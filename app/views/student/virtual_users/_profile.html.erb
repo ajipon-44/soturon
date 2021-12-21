@@ -16,8 +16,8 @@
       <%= virtual_user.catch_copy %>
     </div>
     <div>
-      <span class="font-bold"><%= virtual_user.followings_count %></span><span class="gray-character">フォロー中</span>
-      <span class="font-bold"><%= virtual_user.followers_count %></span><span class="gray-character">フォロワー</span>
+      <span class="font-bold"><%= virtual_user.followings_count %></span><span class="gray-character"><%= link_to "フォロー中", student_follow_path(virtual_user, click: "followings") %></span>
+      <span class="font-bold"><%= virtual_user.followers_count %></span><span class="gray-character"><%= link_to "フォロワー", student_follow_path(virtual_user, click: "follower") %></span>
     </div>
   </div>
 </div>

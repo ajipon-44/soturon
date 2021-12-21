@@ -8,7 +8,7 @@
     <h5>解答</h5>
     <span>
       <% if student_ansewer == 1 %>
-        原状情報の流出はない
+        現状情報の流出はない
       <% elsif student_ansewer == 2 %>
         今後の投稿次第では危険
       <% elsif student_ansewer == 3 %>
@@ -20,7 +20,7 @@
     <h5>正解</h5>
     <span>
       <% if @answers.find_by(virtual_user_id: @answers.find_by(virtual_user_id: virtual_user_id).virtual_user).danger_level == 1 %>
-        原状情報の流出はない
+        現状情報の流出はない
       <% elsif @answers.find_by(virtual_user_id: @answers.find_by(virtual_user_id: virtual_user_id).virtual_user).danger_level == 2 %>
         今後の投稿次第では危険
       <% elsif @answers.find_by(virtual_user_id: @answers.find_by(virtual_user_id: virtual_user_id).virtual_user).danger_level == 3 %>

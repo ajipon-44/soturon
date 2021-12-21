@@ -1,0 +1,45 @@
+<table class="st-tbl1">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to student_virtual_user_path(@virtual_user) do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+
+        <%= @theme %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @follow.each do |follow| %>
+      <tr>
+        <td>
+        <div class="post-wrapper">
+          <div class="icon-wrapper">
+            <% if follow.image %>
+              <%= image_tag "/user_images/#{follow.id}.jpg", size: '40x40' %>
+            <% else %>
+              <%= image_tag 'default_icon.jpg', size: '40x40' %>
+            <% end %>
+          </div>
+          <div class="post-info-wrapper">
+            <div class="top-wrapper">
+              <%= link_to student_virtual_user_path(follow.id), class: 'delete_link_decoration delete_link_color' do %>
+                <span class="font-bold"><%= follow.name %></span>
+                <span class="gray-character">@<%= follow.sub_name %></span>
+              <% end %>
+            </div>
+            <div class="body-wrapper">
+              <% if follow.catch_copy? %>
+                <%= follow.catch_copy %>
+              <% else %>
+                ヒトコトはありません
+              <% end %>
+            </div>
+          </div>
+        </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
