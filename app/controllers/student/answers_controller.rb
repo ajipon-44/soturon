@@ -8,8 +8,10 @@ class Student::AnswersController < ApplicationController
   def answer_check
     $result = []
     params[:danger_level].each do |key, value|
+      key = key.to_i
+      value = value.to_i
       set_answer(key)
-      buf = [key.to_i, value.to_i]
+      buf = [key, value]
       if value == @answer.danger_level
         buf.push(1)
         $result.push(buf)

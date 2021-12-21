@@ -1,5 +1,24 @@
 <% if !@posts.empty? %>
   <%= render 'student/share/table', posts: @posts %>
 <% else %>
-  投稿はありません
+  <table class="st-tbl1">
+    <thead>
+      <tr>
+        <th>
+          <%= link_to root_path do %>
+            <i class="fas fa-arrow-left"></i>
+          <% end %>
+
+          <%= @theme %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+            <%= render 'student/virtual_users/profile', virtual_user: @virtual_user %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 <% end %>
