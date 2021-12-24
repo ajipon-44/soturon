@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   root 'student/posts#index'
+  get 'student/how_to_use', to: 'student#how_to_use'
   namespace :student do
     resources :posts, only: [:index, :show]
     resources :virtual_users, only: [:show]

@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <% if params[:controller].include?("student") %>
+    <% if params[:controller].include?("student") && params[:action] != "how_to_use" %>
       <%= render 'student/share/side_menu' %>
     <% end %>
     <%= yield %>
