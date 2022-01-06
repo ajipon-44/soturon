@@ -1,0 +1,24 @@
+<div class="answer-wrapper">
+  <h1>問題解答</h1>
+  <h4 class="answer-label-title">
+    それぞれのユーザーの地域が特定できたかを解答してください<br>
+    すべての解答を埋め終えたらIDを入れ，この画面のスクリーンショットを添付して解答送信ボタンを押してください
+  </h4>
+  <br>
+  <% @virtual_users.each do |virtual_user| %>
+    <p class="answer-label-title"><%= virtual_user.name %>の地域</p>
+    <select name="example">
+      <option>地域が特定できなかった</option>
+      <option>地域が特定できた</option>
+    </select>
+    <br>
+    <br>
+  <% end %>
+
+  <%= form_with model: @user_answer, url: student_user_answer_path, local: true do |form| %>
+    <%= form.label :user_id, 'ID' %>
+    <%= form.text_field :user_id %>
+    <%= form.file_field :image %>
+    <%= form.submit "答えを送信する" %>
+  <% end %>
+</div>

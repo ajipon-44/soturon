@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_073010) do
+ActiveRecord::Schema.define(version: 2022_01_05_073225) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "virtual_user_id"
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 2021_12_03_073010) do
     t.integer "real_user_id"
     t.string "teacher"
     t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_answers", force: :cascade do |t|
+    t.string "user_id"
+    t.binary "image", limit: 1048576
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
