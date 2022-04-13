@@ -12,7 +12,13 @@
         <span class="font-bold"><%= post.virtual_user_name %></span>
         <span class="gray-character">@<%= post.virtual_user_sub_name %></span>
       <% end %>
-      <span class="gray-character"><%= post.date %></span>
+      <span class="gray-character">
+        <% if post.id != 26 %>
+          <%= post.date %>
+        <% else %>
+          2015-05-23
+        <% end %>
+      </span>
     </div>
     <div class="body-wrapper">
       <% if !post.replyings.empty? %>
