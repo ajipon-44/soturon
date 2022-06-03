@@ -22,11 +22,12 @@ SNSの情報リテラシーの授業をするとなった際に実際のアプ�
 ```bash
 git clone https://github.com/ajipon-44/soturon
 cd soturon
-rails c
+rails db:seed
+rails s
 ```
 
 # Note
-
+※デプロイしてません
 * 教師用画面URL
 http://localhost:3000/teacher/index
 
