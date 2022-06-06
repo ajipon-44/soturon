@@ -28,7 +28,7 @@
       </tr>
     <% end %>
 
-    <% posts.each do |post| %>
+    <% posts.where(display_flag: 1).each do |post| %>
       <tr>
         <td><%= render 'student/share/post_body', post: post %></td>
       </tr>

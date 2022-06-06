@@ -31,6 +31,10 @@
   <%= form.date_select :date %>
   <br>
 
+  <%= form.label :display_flag, '表示 / 非表示' %>
+  <%= form.select :display_flag, [ ["表示", 1], ["非表示", 0] ] %>
+  <br>
+
   <%= form.submit "更新をする" %>
 <% end %>
 

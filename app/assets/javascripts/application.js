@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+$(function(){
+  $('.acdn-button').click(function() {
+    $(this).toggleClass('selected');
+    $(this).next().slideToggle();
+  });
+});

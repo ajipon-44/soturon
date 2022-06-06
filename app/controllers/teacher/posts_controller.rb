@@ -21,6 +21,7 @@ class Teacher::PostsController < ApplicationController
       image3: params[:post][:image3],
       image4: params[:post][:image4],
       date: @time,
+      display_flag: 1
     )
     if @post.save
       set_image
@@ -44,6 +45,7 @@ class Teacher::PostsController < ApplicationController
       image3: params[:post][:image3],
       image4: params[:post][:image4],
       date: @time,
+      display_flag: params[:post][:display_flag]
     )
       flash[:success] = "更新しました．"
       redirect_to teacher_posts_path

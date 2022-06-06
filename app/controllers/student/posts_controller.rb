@@ -4,7 +4,7 @@ class Student::PostsController < ApplicationController
   before_action :set_action, only: [:index, :show]
 
   def index
-    @posts = Post.all.order(date: :desc)
+    @posts = Post.all.where(display_flag: 1).order(date: :desc)
   end
 
   def show

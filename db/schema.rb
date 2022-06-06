@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_073225) do
+ActiveRecord::Schema.define(version: 2022_06_06_083247) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "virtual_user_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_01_05_073225) do
     t.integer "quote_tweet"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "display_flag"
   end
 
   create_table "quote_tweets", force: :cascade do |t|
