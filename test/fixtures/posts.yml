@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  body            :text
 #  date            :date
+#  display_flag    :integer
 #  good            :integer
 #  image1          :string
 #  image2          :string

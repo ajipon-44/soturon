@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  body            :text
 #  date            :date
+#  display_flag    :integer
 #  good            :integer
 #  image1          :string
 #  image2          :string
@@ -32,7 +33,7 @@ class Post < ApplicationRecord
   def goods_count; goods.count; end
   def virtual_user_image; virtual_user.image; end
   # def virtual_user_id; virtual_user.id; end # なぜかエラー吐く
-  def replieds_count; replieds.count; end
+  def replieds_count; replieds.where(display_flag: 1).count; end
   def replyings_virtual_user_name; replyings.first.virtual_user.name; end
   def replyings_virtual_user_id; replyings.first.virtual_user.id; end
 
