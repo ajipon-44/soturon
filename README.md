@@ -20,10 +20,8 @@ SNSの情報リテラシーの授業をするとなった際に実際のアプ�
 # Usage
 
 ```bash
-git clone https://github.com/ajipon-44/soturon
-cd soturon
-rails db:seed
-rails s
+docker-compose build
+docker-compose up
 ```
 
 # Note
