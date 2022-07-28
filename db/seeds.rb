@@ -10,32 +10,32 @@ VirtualUser.create!(
     {
       name: 'Daii_i12',
       sub_name: 'daii_i12',
-      catch_copy: 'Daii_i12',
-      image: File.open("#{Rails.root}/public/images/daii_i12.jpg")
+      catch_copy: '暑くても寒くてもしんだいわ',
+      image: File.open("#{Rails.root}/public/user_images/1.jpg")
     },
     {
       name: 'andy_83',
       sub_name: 'GeorgeLABO',
       catch_copy: '立川第一→立川女子',
-      image: File.open("#{Rails.root}/public/images/andy_83.jpg")
+      image: File.open("#{Rails.root}/public/user_images/2.jpg")
     },
     {
       name: '310d5',
       sub_name: 'd5d5',
       catch_copy: '',
-      image: File.open("#{Rails.root}/public/images/310d5.jpg")
+      image: File.open("#{Rails.root}/public/user_images/3.jpg")
     },
     {
       name: 't.makita',
       sub_name: 'Takako Makita',
       catch_copy: '',
-      image: File.open("#{Rails.root}/public/images/t.makita.jpg")
+      image: File.open("#{Rails.root}/public/user_images/4.jpg")
     },
     {
       name: 'okuchan',
       sub_name: 'okkuchan_14',
       catch_copy: '',
-      image: File.open("#{Rails.root}/public/images/okuchan.jpg")
+      #image: File.open("#{Rails.root}/public/user_images/okuchan.jpg")
     }
   ]
 )
@@ -45,21 +45,21 @@ Post.create!(
     {
       virtual_user_id: 2,
       body: '帰り道にスタバ～，道端で撮るの恥ずすぎてピント迷子',
-      image1: File.open("#{Rails.root}/public/post_images/25/1.jpg"),
-      date:  Date.new(2012, 1, 17),
+      image1: File.open("#{Rails.root}/public/post_images/1/1.jpg"),
+      date:  Date.new(2022, 1, 17),
       display_flag: 1
     },
     {
       virtual_user_id: 3,
       body: '今日できたスタバにきた！！家近いし通おうかな笑',
-      image1: File.open("#{Rails.root}/public/post_images/26/1.jpg"),
-      date:  Date.new(2017, 5, 23),
+      image1: File.open("#{Rails.root}/public/post_images/2/1.jpg"),
+      date:  Date.new(2015, 5, 23),
       display_flag: 1
     },
     {
-      virtual_user_id: 6,
+      virtual_user_id: 5,
       body: '近くで火事あった！',
-      image1: File.open("#{Rails.root}/public/post_images/28/1.jpg"),
+      image1: File.open("#{Rails.root}/public/post_images/3/1.jpg"),
       date:  Date.new(2021, 3, 1),
       display_flag: 1
     },
@@ -78,28 +78,26 @@ Post.create!(
     {
       virtual_user_id: 1,
       body: '近所のぼうずに学校帰りに行ってきた！',
-      image1: File.open("#{Rails.root}/public/post_images/32/1.jpg"),
-      date:  Date.new(2021, 12, 16),
+      image1: File.open("#{Rails.root}/public/post_images/6/1.jpg"),
+      date:  Date.new(2021, 12, 28),
       display_flag: 1
     },
     {
       virtual_user_id: 4,
       body: '帰り道にスイーツ！',
-      image1: File.open("#{Rails.root}/public/post_images/33/1.jpg"),
+      image1: File.open("#{Rails.root}/public/post_images/7/1.jpg"),
       date:  Date.new(2021, 7, 18),
       display_flag: 1
     },
     {
       virtual_user_id: 1,
       body: '蔵本祭がんばるぞ',
-      image1: File.open("#{Rails.root}/public/post_images/34/1.jpg"),
       date:  Date.new(2019, 11, 1),
       display_flag: 1
     },
     {
       virtual_user_id: 4,
       body: 'あんた起きてるじゃんw、まあ明日がんばろw',
-      image1: File.open("#{Rails.root}/public/post_images/35/1.jpg"),
       date:  Date.new(2021, 6, 8),
       display_flag: 1
     },
@@ -116,7 +114,7 @@ Post.create!(
       display_flag: 1
     },
     {
-      virtual_user_id: 6,
+      virtual_user_id: 5,
       body: '仕事納めのビール最高',
       date:  Date.new(2021, 12, 28),
       display_flag: 1
@@ -128,10 +126,10 @@ Follow.create!(
   [
     {
       virtual_user_id: 4,
-      follower_id: 6
+      follower_id: 5
     },
     {
-      virtual_user_id: 6,
+      virtual_user_id: 5,
       follower_id: 4
     },
     {
@@ -152,20 +150,20 @@ Follow.create!(
 Reply.create!(
   [
     {
-      post_id: 30,
-      replied_id: 29
+      post_id: 4,
+      replied_id: 7
     },
     {
-      post_id: 29,
-      replied_id: 33
+      post_id: 5,
+      replied_id: 4
     },
     {
-      post_id: 36,
-      replied_id: 37
+      post_id: 10,
+      replied_id: 11
     },
     {
-      post_id: 35,
-      replied_id: 36
+      post_id: 9,
+      replied_id: 10
     }
   ]
 )
@@ -174,15 +172,15 @@ Good.create!(
   [
     {
       virtual_user_id: 2,
-      post_id: 35
+      post_id: 5
     },
     {
       virtual_user_id: 4,
-      post_id: 25
+      post_id: 1
     },
     {
       virtual_user_id: 2,
-      post_id: 33
+      post_id: 9
     }
   ]
 )

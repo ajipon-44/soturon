@@ -2,7 +2,7 @@
 #
 # Table name: posts
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  body            :text
 #  date            :date
 #  display_flag    :integer

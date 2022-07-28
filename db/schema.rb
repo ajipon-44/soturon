@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_06_06_083247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.integer "virtual_user_id"
     t.integer "danger_level"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "virtual_user_id"
-    t.integer "follower_id"
+    t.bigint "virtual_user_id"
+    t.bigint "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follower_id"], name: "index_follows_on_follower_id"
@@ -60,8 +63,8 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "replied_id"
+    t.bigint "post_id"
+    t.bigint "replied_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id", "replied_id"], name: "index_replies_on_post_id_and_replied_id", unique: true
@@ -100,7 +103,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
 
   create_table "user_answers", force: :cascade do |t|
     t.string "user_id"
-    t.binary "image", limit: 1048576
+    t.binary "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,4 +119,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "follows", "virtual_users", column: "follower_id"
+  add_foreign_key "replies", "posts", column: "replied_id"
 end
