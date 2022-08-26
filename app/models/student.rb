@@ -2,7 +2,7 @@
 #
 # Table name: students
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  name       :string
 #  password   :string
 #  created_at :datetime         not null
