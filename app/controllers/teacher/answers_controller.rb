@@ -11,7 +11,11 @@ class Teacher::AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(virtual_user_id: params[:answer][:virtual_user_id], danger_level: params[:answer][:danger_level])
+    @answer = Answer.new(
+      virtual_user_id: params[:answer][:virtual_user_id],
+      belonging: params[:answer][:belonging],
+      name: params[:answer][:name],
+      address: params[:answer][:address])
     if @answer.save
       flash[:success] = "作成しました．"
       redirect_to teacher_answers_path
@@ -24,7 +28,11 @@ class Teacher::AnswersController < ApplicationController
   end
 
   def update
-    if @answer.update(virtual_user_id: params[:answer][:virtual_user_id], danger_level: params[:answer][:danger_level])
+    if @answer.update(
+      virtual_user_id: params[:answer][:virtual_user_id],
+      belonging: params[:answer][:belonging],
+      name: params[:answer][:name],
+      address: params[:answer][:address])
       flash[:success] = "更新しました．"
       redirect_to teacher_answers_path
     else

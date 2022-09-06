@@ -2,11 +2,15 @@
 #
 # Table name: user_answers
 #
-#  id         :integer          not null, primary key
-#  image      :binary(1048576)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :string
+#  id               :integer          not null, primary key
+#  address          :string
+#  belonging        :string
+#  name             :string
+#  result_address   :string
+#  result_belonging :string
+#  result_name      :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 require 'test_helper'
 

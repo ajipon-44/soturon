@@ -3,7 +3,9 @@
 # Table name: answers
 #
 #  id              :integer          not null, primary key
-#  danger_level    :integer
+#  address         :string
+#  belonging       :string
+#  name            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  virtual_user_id :integer

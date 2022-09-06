@@ -22,3 +22,42 @@ $(function(){
     $(this).next().slideToggle();
   });
 });
+
+$(function(){
+  $(".answer_belonging").prop('disabled', true).css("opacity",0.6);
+
+  $('.answer_belonging_check').click(function(){
+    if($(this).prop('checked')) {
+      $(this).next().prop('disabled', false).css("opacity",1);
+    } else {
+      $(this).next().val('');
+      $(this).next().prop('disabled', true).css("opacity",0.6);
+    }
+  })
+});
+
+$(function(){
+  $(".answer_name").prop('disabled', true).css("opacity",0.6);
+
+  $('.answer_name_check').click(function(){
+    if($(this).prop('checked')) {
+      $(this).next().prop('disabled', false).css("opacity",1);
+    } else {
+      $(this).next().val('');
+      $(this).next().prop('disabled', true).css("opacity",0.6);
+    }
+  })
+});
+
+$(function(){
+  $(".answer_address").prop('disabled', true).css("opacity",0.6);
+
+  $('.answer_address_check').click(function(){
+    if($(this).prop('checked')) {
+      $(this).next().prop('disabled', false).css("opacity",1);
+    } else {
+      $(this).next().val('');
+      $(this).next().prop('disabled', true).css("opacity",0.6);
+    }
+  })
+});

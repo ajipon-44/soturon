@@ -1,26 +1,28 @@
 <div class="answer-wrapper">
   <h1>問題解答</h1>
   <h4 class="answer-label-title">
-    それぞれのユーザーの学校(勤務先)，名前，住んでいる地域(例：○○県○市)の内，特定できた項目にチェックを入れててください<br>
-    また記述欄にその答えを選んだ理由を打ち込んでください<br>
-    すべての解答を埋め終えたら「Ctrl+Shift+S」を押してください
+    それぞれのユーザーの学校(勤務先)，名前，住んでいる地域(例：○○県○市)の内，特定できた項目にチェックを入れて解答を入力してください
   </h4>
   <br>
-  <% @virtual_users.each do |virtual_user| %>
-    <p class="answer-label-title"><%= virtual_user.name %>の個人情報</p>
-    <%= form_with model: @user_answer, url: student_user_answer_path, local: true do |form| %>
-      学校(勤務先)<%= form.check_box :sex ,{}, "true", "false" %>
-      名前<%= form.check_box :sex ,{}, "true", "false" %>
-      住んでいる地域<%= form.check_box :sex ,{}, "true", "false" %><br>
-      <%#= form.label :user_id, 'ID' %>
-      理由
-      <%= form.text_area :user_id,  size: "80x10", placeholder: "・学校(勤務先)\n学校名\n\n・名前\n\n・住んでいる地域\n○○県○○市" %>
-      <%#= form.file_field :image %>
-      <%#= form.submit "答えを送信する" %>
+  <%= form_with model: @user_answer, url: student_user_answer_path, local: true do |form| %>
+    <% @virtual_users.each do |virtual_user| %>
+      <p class="answer-label-title"><%= virtual_user.name %>の個人情報</p>
+      <div class="answer_belonging_wrapper" >
+        <%= form.check_box :check_belonging, {class: "answer_belonging_check"}, "true", "false" %>学校(勤務先)
+        <%= form.text_field :belonging, :index => "#{virtual_user.id}", class: "answer_belonging", size: "80x10", placeholder: "学校名(勤務先名)" %>
+      </div>
+
+      <div class="answer_name_wrapper" >
+        <%= form.check_box :check_name, {class: "answer_name_check"}, "true", "false" %>名前
+        <%= form.text_field :name, :index => "#{virtual_user.id}", class: "answer_name", size: "80x10", placeholder: "名前\n\n" %>
+      </div>
+
+      <div class="answer_address_wrapper" >
+        <%= form.check_box :check_address, {class: "answer_address_check"}, "true", "false" %>住んでいる地域
+        <%= form.text_field :address, :index => "#{virtual_user.id}", class: "answer_address", size: "80x10", placeholder: "住んでいる地域（○○県○○市）" %>
+      </div>
+      <br>
     <% end %>
-    <br>
-    <br>
+    <%= form.submit "答えを送信する" %>
   <% end %>
-
-
 </div>

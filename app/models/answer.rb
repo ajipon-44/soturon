@@ -3,7 +3,9 @@
 # Table name: answers
 #
 #  id              :integer          not null, primary key
-#  danger_level    :integer
+#  address         :string
+#  belonging       :string
+#  name            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  virtual_user_id :integer
@@ -13,7 +15,10 @@ class Answer < ApplicationRecord
   belongs_to :virtual_user
 
 
+  # 委譲
+  def virtual_user_name; virtual_user.name; end
+
+
   # バリデーション
   validates :virtual_user_id, uniqueness: true
-  validates :danger_level, presence: true
 end

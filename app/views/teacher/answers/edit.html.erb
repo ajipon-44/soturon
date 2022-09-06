@@ -7,10 +7,17 @@
   <%= form.collection_select(:virtual_user_id, @virtual_users, :id, :name, {prompt: "ユーザーを選択してください"}) %>
   <br>
 
-  <%= form.label :danger_level, '危険度' %>
-  <%= form.select(:danger_level, [["原状情報の流出はない", 1], ["今後の投稿次第では危険", 2], ["個人情報が流出している", 3]], {prompt: "危険度を選択してください"}) %>
+  <%= form.label :belonging, '学校名（勤務先）' %>
+  <%= form.text_field :belonging, size: 30 %>
   <br>
 
+  <%= form.label :name, '名前' %>
+  <%= form.text_field :name, size: 30 %>
+  <br>
+
+  <%= form.label :address, '住んでいる地域' %>
+  <%= form.text_field :address, size: 30 %>
+  <br>
   <%= form.submit "更新をする" %>
 <% end %>
 

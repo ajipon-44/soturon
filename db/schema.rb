@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_083247) do
+ActiveRecord::Schema.define(version: 2022_07_22_040238) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer "virtual_user_id"
-    t.integer "danger_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "belonging"
+    t.string "name"
+    t.string "address"
+    t.integer "virtual_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -99,10 +101,14 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
   end
 
   create_table "user_answers", force: :cascade do |t|
-    t.string "user_id"
-    t.binary "image", limit: 1048576
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "belonging"
+    t.string "name"
+    t.string "address"
+    t.string "result_belonging"
+    t.string "result_name"
+    t.string "result_address"
   end
 
   create_table "virtual_users", force: :cascade do |t|

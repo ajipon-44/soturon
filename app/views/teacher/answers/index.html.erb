@@ -8,15 +8,19 @@
 
 <table border="1">
   <tr>
-    <th>架空ユーザーID</th>
-    <th>危険度</th>
+    <th>架空ユーザー名</th>
+    <th>学校名（勤務先）</th>
+    <th>名前</th>
+    <th>住んでいる地域（○○県○○市）</th>
     <th></th>
     <th></th>
   </tr>
   <% @answers.each do |answer| %>
     <tr>
-      <td><%= answer.virtual_user_id %></td>
-      <td><%= answer.danger_level %></td>
+      <td><%= answer.virtual_user_name %></td>
+      <td><%= answer.belonging %></td>
+      <td><%= answer.name %></td>
+      <td><%= answer.address %></td>
       <td><%= link_to "編集", edit_teacher_answer_path(answer) %></td>
       <td><%= link_to "削除", teacher_answer_path(answer), method: :delete, data: {confirm: "削除しますか？"} %></td>
     </tr>
