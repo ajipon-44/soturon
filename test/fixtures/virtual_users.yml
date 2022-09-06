@@ -2,7 +2,7 @@
 #
 # Table name: virtual_users
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  catch_copy :text
 #  follow     :integer
 #  follower   :integer

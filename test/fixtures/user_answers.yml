@@ -2,7 +2,7 @@
 #
 # Table name: user_answers
 #
-#  id               :integer          not null, primary key
+#  id               :bigint          not null, primary key
 #  address          :string
 #  belonging        :string
 #  name             :string
