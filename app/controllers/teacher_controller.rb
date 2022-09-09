@@ -1,7 +1,5 @@
 class TeacherController < ApplicationController
-  def login_form
-  end
+  def login_form; end
 
-  def index
-  end
+  def index; end
 end

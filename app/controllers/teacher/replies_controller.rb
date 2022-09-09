@@ -1,6 +1,6 @@
 class Teacher::RepliesController < ApplicationController
-  before_action :set_posts, only: [:new, :create, :edit, :update]
-  before_action :set_reply, only: [:edit, :update, :destroy]
+  before_action :set_posts, only: %i[new create edit update]
+  before_action :set_reply, only: %i[edit update destroy]
 
   def index
     @replies = Reply.all
@@ -13,19 +13,18 @@ class Teacher::RepliesController < ApplicationController
   def create
     @reply = Reply.new(post_id: params[:reply][:post_id], replied_id: params[:reply][:replied_id])
     if @reply.save
-      flash[:success] = "作成しました．"
+      flash[:success] = '作成しました．'
       redirect_to teacher_replies_path
     else
       render new_teacher_reply_path
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @reply.update(post_id: params[:reply][:post_id], replied_id: params[:reply][:replied_id])
-      flash[:success] = "更新しました．"
+      flash[:success] = '更新しました．'
       redirect_to teacher_replies_path
     else
       render 'edit'
@@ -34,7 +33,7 @@ class Teacher::RepliesController < ApplicationController
 
   def destroy
     if @reply.destroy
-      flash[:success] = "削除しました．"
+      flash[:success] = '削除しました．'
       redirect_to teacher_replies_path
     else
       render teacher_replies_path
@@ -42,6 +41,7 @@ class Teacher::RepliesController < ApplicationController
   end
 
   private
+
   def set_posts
     @posts = Post.all
   end

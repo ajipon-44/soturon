@@ -1,12 +1,11 @@
 class Teacher::VirtualUsersController < ApplicationController
-  before_action :set_virtual_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_virtual_user, only: %i[show edit update destroy]
 
   def index
     @virtual_users = VirtualUser.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @virtual_user = VirtualUser.new
@@ -21,8 +20,8 @@ class Teacher::VirtualUsersController < ApplicationController
     )
     if @virtual_user.save
       if params[:virtual_user][:image]
-        set_image
-      end
+				set_image
+			end
       flash[:success] = "新規作成したユーザーの危険度を設定してください"
       redirect_to new_teacher_answer_path
     else
@@ -30,20 +29,19 @@ class Teacher::VirtualUsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:virtual_user][:image]
-      set_image
-    end
+			set_image
+		end
     if @virtual_user.update(
       name: params[:virtual_user][:name],
       sub_name: params[:virtual_user][:sub_name],
       catch_copy: params[:virtual_user][:catch_copy],
       image: params[:virtual_user][:image]
     )
-      flash[:success] = "更新しました．"
+      flash[:success] = '更新しました．'
       redirect_to teacher_virtual_users_path
     else
       render 'edit'
@@ -55,7 +53,7 @@ class Teacher::VirtualUsersController < ApplicationController
       if File.exist?("public/user_images/#{@virtual_user.id}.jpg")
         File.delete("public/user_images/#{@virtual_user.id}.jpg")
       end
-      flash[:success] = "削除しました．"
+      flash[:success] = '削除しました．'
       redirect_to teacher_virtual_users_path
     else
       render teacher_virtual_users_path
@@ -63,6 +61,7 @@ class Teacher::VirtualUsersController < ApplicationController
   end
 
   private
+
   def virtual_user_params
     params.permit(:name, :sub_name, :catch_copy)
   end

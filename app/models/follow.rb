@@ -23,12 +23,10 @@ class Follow < ApplicationRecord
   belongs_to :virtual_user
   belongs_to :follower, class_name: 'VirtualUser'
 
-
   # 委譲
   def follower_name; follower.name; end
   def virtual_user_name; virtual_user.name; end
 
-
   # バリデーション
-  validates :virtual_user_id, uniqueness: { scope: :follower_id, message: "このフォロー関係はすでに存在します" }
+  validates :virtual_user_id, uniqueness: { scope: :follower_id, message: 'このフォロー関係はすでに存在します' }
 end

@@ -23,11 +23,9 @@ class VirtualUser < ApplicationRecord
   has_many :favorites, through: :goods, source: :post
   has_one :answer, dependent: :destroy
 
-
   # 委譲
   def followings_count; followings.count; end
   def followers_count; followers.count; end
-
 
   # バリデーション
   validates :name, presence: true

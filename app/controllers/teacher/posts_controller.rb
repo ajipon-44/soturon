@@ -1,8 +1,8 @@
 class Teacher::PostsController < ApplicationController
   #before_action :set_virtual_user, only: [:index, :new]
-  before_action :set_time, only: [:create, :update]
-  before_action :set_virtual_users, only: [:new, :create, :edit, :update]
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_time, only: %i[create update]
+  before_action :set_virtual_users, only: %i[new create edit update]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     @posts = Post.all
@@ -32,8 +32,7 @@ class Teacher::PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     set_image
@@ -47,7 +46,7 @@ class Teacher::PostsController < ApplicationController
       date: @time,
       display_flag: params[:post][:display_flag]
     )
-      flash[:success] = "更新しました．"
+      flash[:success] = '更新しました．'
       redirect_to teacher_posts_path
     else
       render 'edit'
@@ -56,7 +55,7 @@ class Teacher::PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      flash[:success] = "削除しました．"
+      flash[:success] = '削除しました．'
       redirect_to teacher_posts_path
     else
       render teacher_posts_path
@@ -64,8 +63,9 @@ class Teacher::PostsController < ApplicationController
   end
 
   private
+
   def set_time
-    @time = Date.new(params[:post]["date(1i)"].to_i,params[:post]["date(2i)"].to_i,params[:post]["date(3i)"].to_i)
+    @time = Date.new(params[:post]['date(1i)'].to_i, params[:post]['date(2i)'].to_i, params[:post]['date(3i)'].to_i)
   end
 
   def set_virtual_users
@@ -79,8 +79,8 @@ class Teacher::PostsController < ApplicationController
   def set_image
     @images = [params[:post][:image1], params[:post][:image2], params[:post][:image3], params[:post][:image4]]
     @images = @images.compact
-    if @images.length != 0
-      Dir.mkdir("./public/post_images/#{@post.id}") if !Dir.exist?("./public/post_images/#{@post.id}")
+    if @images.!empty?
+      Dir.mkdir("./public/post_images/#{@post.id}") unless Dir.exist?("./public/post_images/#{@post.id}")
       @images.each.with_index(1) do |image, i|
         File.binwrite("public/post_images/#{@post.id}/#{i}.jpg", image.read)
       end

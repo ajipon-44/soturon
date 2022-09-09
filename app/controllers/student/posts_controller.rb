@@ -7,10 +7,10 @@ class Student::PostsController < ApplicationController
     @posts = Post.all.where(display_flag: 1).order(date: :desc)
   end
 
-  def show
-  end
+  def show; end
 
   private
+
   def set_post
     @post = Post.find(params[:id])
   end
@@ -21,10 +21,11 @@ class Student::PostsController < ApplicationController
 
   def set_action
     @action = params[:action]
-    if @action == "index"
-      @theme = "ホーム"
-    elsif @action == "show"
-      @theme = "投稿"
-    end
+		case @action
+		when 'index' then
+      @theme = 'ホーム'
+		when 'show' then
+			@theme = '投稿'
+		end
   end
 end

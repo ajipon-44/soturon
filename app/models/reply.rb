@@ -23,12 +23,10 @@ class Reply < ApplicationRecord
   belongs_to :post
   belongs_to :replied, class_name: 'Post'
 
-
   # 委譲
   def replied_body; replied.body; end
   def post_body; post.body; end
 
-
   # バリデーション
-  validates :post_id, uniqueness: { scope: :replied_id, message: "このリプライはすでに存在します" }
+  validates :post_id, uniqueness: { scope: :replied_id, message: 'このリプライはすでに存在します' }
 end
