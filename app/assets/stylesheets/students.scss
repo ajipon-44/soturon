@@ -5,10 +5,14 @@ body {
   margin: 0;
 }
 
+.how_to_use_image {
+  text-align: center;
+}
+
 table.st-tbl1 {
-	text-align: left;
-	position: relative;
-	border-collapse: collapse;
+  text-align: left;
+  position: relative;
+  border-collapse: collapse;
   width: 40%;
   margin: 0 auto;
   th {
@@ -34,8 +38,8 @@ table.st-tbl1 {
   position: absolute;
   top: 4%;
   img {
-    object-fit:cover;
-    border-radius:50%;
+    object-fit: cover;
+    border-radius: 50%;
     margin-top: 1%;
   }
 }
@@ -52,7 +56,7 @@ table.st-tbl1 {
 }
 
 .gray-character {
-  color: rgb(83, 100, 113)
+  color: rgb(83, 100, 113);
 }
 
 .font-bold {
@@ -82,10 +86,10 @@ table.st-tbl1 {
   }
 }
 
-.answer-wrapper{
+.answer-wrapper {
   text-align: left;
-	//position: relative;
-	//border-collapse: collapse;
+  //position: relative;
+  //border-collapse: collapse;
   width: 40%;
   margin: 0 auto;
   border: 3px solid;

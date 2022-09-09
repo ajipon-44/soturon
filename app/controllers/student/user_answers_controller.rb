@@ -1,5 +1,5 @@
 class Student::UserAnswersController < ApplicationController
-  before_action :set_virtual_users, only: [:new, :create]
+  before_action :set_virtual_users, only: %i[new create]
 
   def new
     @user_answer = UserAnswer.new
@@ -14,6 +14,7 @@ class Student::UserAnswersController < ApplicationController
   end
 
   private
+
   def set_virtual_users
     @virtual_users = VirtualUser.all
   end

@@ -12,7 +12,6 @@ class Answer < ApplicationRecord
   # 関連
   belongs_to :virtual_user
 
-
   # バリデーション
   validates :virtual_user_id, uniqueness: true
   validates :danger_level, presence: true

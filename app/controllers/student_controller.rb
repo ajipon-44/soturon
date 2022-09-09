@@ -1,4 +1,3 @@
 class StudentController < ApplicationController
-  def how_to_use
-  end
+  def how_to_use; end
 end
