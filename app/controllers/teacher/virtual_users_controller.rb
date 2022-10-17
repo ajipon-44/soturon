@@ -16,14 +16,16 @@ class Teacher::VirtualUsersController < ApplicationController
       name: params[:virtual_user][:name],
       sub_name: params[:virtual_user][:sub_name],
       catch_copy: params[:virtual_user][:catch_copy],
-      image: params[:virtual_user][:image]
+      image: params[:virtual_user][:image],
+      belonging: params[:virtual_user][:belonging],
+      real_name: params[:virtual_user][:real_name],
+      address: 	params[:"geoapi-prefectures"] + params[:"geoapi-cities"]
     )
     if @virtual_user.save
       if params[:virtual_user][:image]
 				set_image
 			end
-      flash[:success] = "新規作成したユーザーの危険度を設定してください"
-      redirect_to new_teacher_answer_path
+      redirect_to teacher_virtual_users_path
     else
       render new_teacher_virtual_user_path
     end
@@ -39,7 +41,10 @@ class Teacher::VirtualUsersController < ApplicationController
       name: params[:virtual_user][:name],
       sub_name: params[:virtual_user][:sub_name],
       catch_copy: params[:virtual_user][:catch_copy],
-      image: params[:virtual_user][:image]
+      image: params[:virtual_user][:image],
+      belonging: params[:virtual_user][:belonging],
+      real_name: params[:virtual_user][:real_name],
+      address: 	params[:"geoapi-prefectures"] + params[:"geoapi-cities"]
     )
       flash[:success] = '更新しました．'
       redirect_to teacher_virtual_users_path
@@ -49,6 +54,7 @@ class Teacher::VirtualUsersController < ApplicationController
   end
 
   def destroy
+		binding.pry
     if @virtual_user.destroy
       if File.exist?("public/user_images/#{@virtual_user.id}.jpg")
         File.delete("public/user_images/#{@virtual_user.id}.jpg")

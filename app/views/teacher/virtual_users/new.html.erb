@@ -1,9 +1,8 @@
 <h1>架空ユーザーの追加</h1>
-
 <%= render 'error_message', virtual_user: @virtual_user %>
 
 <%= form_with model: @virtual_user, url: teacher_virtual_users_path, local: true do |form| %>
-  <%= form.label :name, '名前' %>
+  <%= form.label :name, 'SNS上の名前' %>
   <%= form.text_field :name %>
   <br>
 
@@ -18,6 +17,23 @@
   <%= form.label :image, '画像' %>
   <%= form.file_field :image %>
   <br>
+
+	<%= form.label :belonging, '学校・勤務先' %>
+  <%= form.text_field :belonging %>
+  <br>
+
+	<%= form.label :real_name, '本名' %>
+  <%= form.text_field :real_name %>
+  <br>
+
+  <%= form.label :address, '住んでいる地域' %>
+  <select id="geoapi-prefectures" name="geoapi-prefectures">
+	  <option value="都道府県を選択してください">都道府県を選択してください</option>
+	</select>
+	<select id="geoapi-cities" name="geoapi-cities">
+	  <option value="市区町村名を選択してください">市区町村名を選択してください</option>
+	</select>
+	<br>
 
   <%= form.submit "新規作成をする" %>
 <% end %>

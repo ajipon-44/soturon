@@ -1,9 +1,0 @@
-<% if answer.present? %>
-  <div class = "alert">
-    <ul>
-      <% answer.errors.full_messages.uniq.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>

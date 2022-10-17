@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_083247) do
+ActiveRecord::Schema.define(version: 2021_10_13_084329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.integer "virtual_user_id"
-    t.integer "danger_level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "follows", force: :cascade do |t|
     t.bigint "virtual_user_id"
@@ -46,18 +39,11 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
     t.string "image2"
     t.string "image3"
     t.string "image4"
+    t.integer "display_flag"
     t.date "date"
     t.integer "good"
     t.integer "retweet"
     t.integer "quote_tweet"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "display_flag"
-  end
-
-  create_table "quote_tweets", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,49 +58,14 @@ ActiveRecord::Schema.define(version: 2022_06_06_083247) do
     t.index ["replied_id"], name: "index_replies_on_replied_id"
   end
 
-  create_table "retweets", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.integer "real_user_id"
-    t.string "teacher"
-    t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_answers", force: :cascade do |t|
-    t.string "user_id"
-    t.binary "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "virtual_users", force: :cascade do |t|
     t.string "name"
     t.string "sub_name"
-    t.integer "follow"
-    t.integer "follower"
     t.text "catch_copy"
     t.string "image"
+    t.string "belonging"
+    t.string "real_name"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
