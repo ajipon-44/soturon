@@ -16,6 +16,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+//= require select2
 $(function () {
   $(".acdn-button").click(function () {
     $(this).toggleClass("selected");
@@ -60,4 +61,9 @@ $(function () {
       $(this).next().prop("disabled", true).css("opacity", 0.6);
     }
   });
+});
+
+$(document).ready(function () {
+  $("#mySelect2").select2({ width: "30%" });
+  $("#mySelect2").val("").trigger("change");
 });

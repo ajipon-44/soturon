@@ -19,7 +19,12 @@
   <br>
 
 	<%= form.label :belonging, '学校・勤務先' %>
-  <%= form.text_field :belonging %>
+  <!-- params[:belonging]で送られる -->
+  <select id="mySelect2">
+	  <% @school_name.each do |school_name| %>
+      <option><%= school_name[:school_name] %></option>
+		<% end %>
+  </select>
   <br>
 
 	<%= form.label :real_name, '本名' %>
