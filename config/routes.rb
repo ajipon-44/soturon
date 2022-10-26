@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     resource :answer, only: [:show]
     resources :follows, only: [:show]
     resource :user_answer, only: [:new, :create]
-    post 'answer/answer_check', to: 'answers#answer_check'
-    get 'answer/result', to: 'answers#result'
+    post 'user_answer/check_answer', to: 'user_answer#check_answer'
   end
 end
