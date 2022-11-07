@@ -28,8 +28,9 @@ class Student::UserAnswersController < ApplicationController
   end
 
 	def set_school_name
-		school_name_file = Roo::Excelx.new(Rails.root.join('school_name.xlsx'))
-    school_name_sheet = school_name_file.sheet('Sheet1')
-		@school_name = school_name_sheet.parse(school_name: '学校名')
+		# school_name_file = Roo::Excelx.new(Rails.root.join('school_name.csv'))
+    # school_name_sheet = school_name_file.sheet('Sheet1')
+		# @school_name = school_name_sheet.parse(school_name: '学校名')
+		@school_name = CSV.read('school_name.csv')
 	end
 end

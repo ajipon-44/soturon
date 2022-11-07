@@ -10,9 +10,10 @@
       <div class="answer_belonging_wrapper" >
         <%= form.check_box :check_belonging, {class: "answer_belonging_check"}, "true", "false" %>学校(勤務先)
         <%#= form.text_field :belonging, :index => "#{virtual_user.id}", class: "answer_belonging", size: "80x10", placeholder: "学校名(勤務先名)" %>
+				<!-- クラスにしないと無理 <select class="answer_belonging mySelect2"> -->
 				<select class="answer_belonging" id="mySelect2">
 				  <% @school_name.each do |school_name| %>
-			      <option><%= school_name[:school_name] %></option>
+			      <option><%= school_name %></option>
 					<% end %>
 			  </select>
       </div>

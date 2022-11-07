@@ -75,3 +75,15 @@ $(document).ready(function () {
   });
   $("#mySelect2").val("").trigger("change");
 });
+
+// $(document).ready(function () {
+//   $(".mySelect2").select2({
+//     width: "30%",
+//     language: {
+//       noResults: function () {
+//         return "対象が見つかりません";
+//       },
+//     },
+//   });
+//   $(".mySelect2").val("").trigger("change");
+// });
