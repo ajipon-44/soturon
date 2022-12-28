@@ -1,12 +1,15 @@
 <h1><%= @virtual_user.name %>詳細ページ</h1>
 <table border="1">
   <tr>
-    <th>名前</th>
+    <th>SNS上の名前</th>
     <th>ID</th>
     <th>ヒトコト</th>
     <th>フォロー中</th>
     <th>フォロワー</th>
     <th>アイコン</th>
+		<th>答え（学校・勤務先）</th>
+    <th>答え（本名）</th>
+    <th>答え（住んでいる地域）</th>
   </tr>
   <tr>
     <td><%= @virtual_user.name %></td>
@@ -21,6 +24,9 @@
         <%= image_tag 'default_icon.jpg', size: '40x40' %>
       <% end %>
     </td>
+		<td><%= @virtual_user.belonging %></td>
+    <td><%= @virtual_user.real_name %></td>
+    <td><%= @virtual_user.address %></td>
   </tr>
 </table>
 
