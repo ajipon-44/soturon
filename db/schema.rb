@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_084329) do
+ActiveRecord::Schema.define(version: 2022_11_08_031638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2021_10_13_084329) do
     t.index ["post_id", "replied_id"], name: "index_replies_on_post_id_and_replied_id", unique: true
     t.index ["post_id"], name: "index_replies_on_post_id"
     t.index ["replied_id"], name: "index_replies_on_replied_id"
+  end
+
+  create_table "user_answers", force: :cascade do |t|
+    t.string "belonging"
+    t.string "real_name"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "virtual_users", force: :cascade do |t|

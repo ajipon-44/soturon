@@ -1,6 +1,6 @@
 class Teacher::VirtualUsersController < ApplicationController
   before_action :set_virtual_user, only: %i[show edit update destroy]
-	before_action :set_school_name, only: %i[new]
+	# before_action :set_school_name, only: %i[new]
 
   def index
     @virtual_users = VirtualUser.all
@@ -82,9 +82,9 @@ class Teacher::VirtualUsersController < ApplicationController
     File.binwrite("public/user_images/#{@virtual_user.id}.jpg", image.read)
   end
 
-	def set_school_name
-		school_name_file = Roo::Excelx.new(Rails.root.join('school_name.csv'))
-    school_name_sheet = school_name_file.sheet('Sheet1')
-		@school_name = school_name_sheet.parse(school_name: '学校名')
-	end
+	# def set_school_name
+	# 	school_name_file = Roo::Excelx.new(Rails.root.join('school_name.csv'))
+  #   school_name_sheet = school_name_file.sheet('Sheet1')
+	# 	@school_name = school_name_sheet.parse(school_name: '学校名')
+	# end
 end

@@ -55,29 +55,30 @@ $(function () {
 
   $(".answer_address_check").click(function () {
     if ($(this).prop("checked")) {
-      $(this).nextAll("select").prop("disabled", false).css("opacity", 1);
+      $(this).next().prop("disabled", false).css("opacity", 1);
     } else {
-      $(this).next().val("都道府県を選択してください");
-      $(this).next().next().val("市区町村名を選択してください");
-      $(this).nextAll("select").prop("disabled", true).css("opacity", 0.6);
+      $(this).next().val("");
+      $(this).next().prop("disabled", true).css("opacity", 0.6);
     }
   });
 });
 
-$(document).ready(function () {
-  $("#mySelect2").select2({
-    width: "30%",
-    language: {
-      noResults: function () {
-        return "対象が見つかりません";
-      },
-    },
-  });
-  $("#mySelect2").val("").trigger("change");
-});
+// $(function () {
+//   $(".answer_address").prop("disabled", true).css("opacity", 0.6);
+
+//   $(".answer_address_check").click(function () {
+//     if ($(this).prop("checked")) {
+//       $(this).nextAll("select").prop("disabled", false).css("opacity", 1);
+//     } else {
+//       $(this).next().val("都道府県を選択してください");
+//       $(this).next().next().val("市区町村名を選択してください");
+//       $(this).nextAll("select").prop("disabled", true).css("opacity", 0.6);
+//     }
+//   });
+// });
 
 // $(document).ready(function () {
-//   $(".mySelect2").select2({
+//   $("#mySelect2").select2({
 //     width: "30%",
 //     language: {
 //       noResults: function () {
@@ -85,5 +86,17 @@ $(document).ready(function () {
 //       },
 //     },
 //   });
-//   $(".mySelect2").val("").trigger("change");
+//   $("#mySelect2").val("").trigger("change");
 // });
+
+// // $(document).ready(function () {
+// //   $(".mySelect2").select2({
+// //     width: "30%",
+// //     language: {
+// //       noResults: function () {
+// //         return "対象が見つかりません";
+// //       },
+// //     },
+// //   });
+// //   $(".mySelect2").val("").trigger("change");
+// // });

@@ -19,12 +19,7 @@
   <br>
 
 	<%= form.label :belonging, '学校・勤務先' %>
-  <!-- params[:belonging]で送られる -->
-  <select id="mySelect2">
-	  <% @school_name.each do |school_name| %>
-      <option><%= school_name[:school_name] %></option>
-		<% end %>
-  </select>
+  <%= form.text_field :belonging %>
   <br>
 
 	<%= form.label :real_name, '本名' %>
@@ -32,12 +27,7 @@
   <br>
 
   <%= form.label :address, '住んでいる地域' %>
-  <select id="geoapi-prefectures" name="geoapi-prefectures">
-	  <option value="都道府県を選択してください">都道府県を選択してください</option>
-	</select>
-	<select id="geoapi-cities" name="geoapi-cities">
-	  <option value="市区町村名を選択してください">市区町村名を選択してください</option>
-	</select>
+  <%= form.text_field :address %>
 	<br>
 
   <%= form.submit "新規作成をする" %>
