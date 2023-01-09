@@ -8,29 +8,18 @@
     <% @virtual_users.each do |virtual_user| %>
       <p class="answer-label-title"><%= virtual_user.name %>の個人情報</p>
       <div class="answer_belonging_wrapper" >
-        <%= form.check_box :check_belonging, {class: "answer_belonging_check"}, "true", "false" %>学校(勤務先)
-        <%#= form.text_field :belonging, :index => "#{virtual_user.id}", class: "answer_belonging", size: "80x10", placeholder: "学校名(勤務先名)" %>
-				<select class="answer_belonging" id="mySelect2">
-				  <% @school_name.each do |school_name| %>
-			      <option><%= school_name[:school_name] %></option>
-					<% end %>
-			  </select>
+        <%= form.check_box :"check_belonging_#{virtual_user.id}", {class: "answer_belonging_check"}, "true", "false" %>学校(勤務先)
+        <%= form.text_field :"belonging_#{virtual_user.id}", :index => "#{virtual_user.id}", class: "answer_belonging", size: "80x10", placeholder: "学校名(勤務先名)" %>
       </div>
 
       <div class="answer_name_wrapper" >
-        <%= form.check_box :check_name, {class: "answer_name_check"}, "true", "false" %>名前
-        <%= form.text_field :name, :index => "#{virtual_user.id}", class: "answer_name", size: "80x10", placeholder: "名前\n\n" %>
+        <%= form.check_box :"check_name_#{virtual_user.id}", {class: "answer_name_check"}, "true", "false" %>名前
+        <%= form.text_field :"name_#{virtual_user.id}", :index => "#{virtual_user.id}", class: "answer_name", size: "80x10", placeholder: "名前\n\n" %>
       </div>
 
       <div class="answer_address_wrapper" >
-        <%= form.check_box :check_address, {class: "answer_address_check"}, "true", "false" %>住んでいる地域
-        <%#= form.text_field :address, :index => "#{virtual_user.id}", class: "answer_address", size: "80x10", placeholder: "住んでいる地域（○○県○○市）" %>
-				<select class="answer_address" id="geoapi-prefectures" name="geoapi-prefectures">
-				  <option value="都道府県を選択してください">都道府県を選択してください</option>
-				</select>
-				<select class="answer_address" id="geoapi-cities" name="geoapi-cities">
-				  <option value="市区町村名を選択してください">市区町村名を選択してください</option>
-				</select>
+        <%= form.check_box :"check_address_#{virtual_user.id}", {class: "answer_address_check"}, "true", "false" %>住んでいる地域
+        <%= form.text_field :"address_#{virtual_user.id}", :index => "#{virtual_user.id}", class: "answer_address", size: "80x10", placeholder: "住んでいる地域（○○県○○市）" %>
       </div>
       <br>
     <% end %>
