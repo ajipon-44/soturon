@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2021_10_13_084329) do
     t.string "belonging"
     t.string "real_name"
     t.string "address"
+    t.text "belonging_explanation", default: "特になし", null: false
+    t.text "real_name_explanation", default: "特になし", null: false
+    t.text "address_explanation", default: "特になし", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
