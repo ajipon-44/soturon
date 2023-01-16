@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :virtual_users, only: [:show]
     resource :answer, only: [:show]
     resources :follows, only: [:show]
-    resource :user_answer, only: [:new, :create]
+    resource :user_answer, only: [:new, :show]
     post 'user_answer/check_answer', to: 'user_answers#check_answer'
   end
 end
