@@ -36,6 +36,10 @@ gem 'jquery-rails'
 
 gem 'pg'
 
+gem 'roo', '~>2.8.0'
+
+gem 'select2-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

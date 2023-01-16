@@ -3,11 +3,12 @@
 # Table name: virtual_users
 #
 #  id         :bigint           not null, primary key
+#  address    :string
+#  belonging  :string
 #  catch_copy :text
-#  follow     :integer
-#  follower   :integer
 #  image      :string
 #  name       :string
+#  real_name  :string
 #  sub_name   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,7 +22,6 @@ class VirtualUser < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :virtual_user
   has_many :goods
   has_many :favorites, through: :goods, source: :post
-  has_one :answer, dependent: :destroy
 
   # 委譲
   def followings_count; followings.count; end

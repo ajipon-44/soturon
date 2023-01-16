@@ -11,30 +11,38 @@ VirtualUser.create!(
       name: 'Daii_i12',
       sub_name: 'daii_i12',
       catch_copy: '暑くても寒くてもしんだいわ',
-      image: File.open("#{Rails.root}/public/user_images/1.jpg")
+      image: File.open("#{Rails.root}/public/user_images/1.jpg"),
+			belonging: '徳島大学',
+			address: '徳島県徳島市'
     },
     {
       name: 'andy_83',
       sub_name: 'GeorgeLABO',
       catch_copy: '立川第一→立川女子',
-      image: File.open("#{Rails.root}/public/user_images/2.jpg")
+      image: File.open("#{Rails.root}/public/user_images/2.jpg"),
+			belonging: '立川女子高等学校',
+			address: '東京都立川市'
     },
     {
       name: '310d5',
       sub_name: 'd5d5',
       catch_copy: '',
-      image: File.open("#{Rails.root}/public/user_images/3.jpg")
+      image: File.open("#{Rails.root}/public/user_images/3.jpg"),
+			address: '鳥取県鳥取市'
     },
     {
       name: 't.makita',
       sub_name: 'Takako Makita',
       catch_copy: '',
-      image: File.open("#{Rails.root}/public/user_images/4.jpg")
+      image: File.open("#{Rails.root}/public/user_images/4.jpg"),
+			belonging: '立川女子高等学校',
+			real_name: 'まきた　たかこ'
     },
     {
       name: 'okuchan',
       sub_name: 'okkuchan_14',
-      catch_copy: ''
+      catch_copy: '',
+			address: '神奈川県小田原市'
     }
   ]
 )
