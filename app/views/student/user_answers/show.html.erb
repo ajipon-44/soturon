@@ -9,16 +9,19 @@
     <div class="answer_belonging_wrapper" >
       <%= @result[3 * i] == ["true"] ? "◯" : "×" %>学校(勤務先) あなたの解答:<%= @user_answer[i][0].blank? ? "無回答" : @user_answer[i][0] %> 答え:<%= virtual_user.belonging == nil ? "無回答" : virtual_user.belonging %>
       <div>解説</div>
+			<br>
     </div>
 
 		<div class="answer_name_wrapper" >
       <%= @result[3 * i + 1] == ["true"] ? "◯" : "×" %>名前 あなたの解答:<%= @user_answer[i][1].blank? ? "無回答" : @user_answer[i][1] %> 答え:<%= virtual_user.real_name == nil ? "無回答" : virtual_user.real_name %>
       <div>解説</div>
+			<br>
     </div>
 
 	  <div class="answer_address_wrapper" >
       <%= @result[3 * i + 2] == ["true"] ? "◯" : "×" %>住んでいる地域 あなたの解答:<%= @user_answer[i][2].blank? ? "無回答" : @user_answer[i][2] %> 答え:<%= virtual_user.address == nil ? "無回答" : virtual_user.address %>
       <div>解説</div>
+			<br>
     </div>
   <% end %>
 </div>

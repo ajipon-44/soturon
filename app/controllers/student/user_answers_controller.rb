@@ -22,9 +22,9 @@ class Student::UserAnswersController < ApplicationController
 		@result = []
 		@virtual_users.each_with_index do |virtual_user, i|
 			result = []
-			result.push(check_belonging(virtual_user.belonging, @user_answer[i][0]))
-			result.push(check_name(virtual_user.real_name, @user_answer[i][1]))
-			result.push(check_address(virtual_user.address, @user_answer[i][2]))
+			result.push(check_something(virtual_user.belonging, @user_answer[i][0]))
+			result.push(check_something(virtual_user.real_name, @user_answer[i][1]))
+			result.push(check_something(virtual_user.address, @user_answer[i][2]))
 			@result.push(result)
 		end
 
@@ -37,24 +37,8 @@ class Student::UserAnswersController < ApplicationController
     @virtual_users = VirtualUser.all
   end
 
-	def check_belonging(belonging, user_answer_belonging)
-		if belonging == user_answer_belonging
-		  return true
-		else
-			return false
-		end
-	end
-
-	def check_name(name, user_answer_name)
-		if name == user_answer_name
-		  return true
-		else
-			return false
-		end
-	end
-
-	def check_address(address, user_answer_address)
-		if address == user_answer_address
+	def check_something(something, user_answer_something)
+		if something == user_answer_something
 		  return true
 		else
 			return false
