@@ -1,7 +1,7 @@
 <div class="answer-wrapper">
   <h1>問題解答</h1>
   <h4 class="answer-label-title">
-    それぞれのユーザーの学校(勤務先)，名前，住んでいる地域(例：○○県○市)の内，特定できた項目にチェックを入れて解答を入力してください
+    それぞれのユーザーの学校(勤務先)，名前(注：ひらがなで姓と名の間に全角スペース)，住んでいる地域(例：○○県○市)の内，特定できた項目にチェックを入れて解答を入力してください
   </h4>
   <br>
   <%= form_with model: @user_answer, url: student_user_answer_check_answer_path, local: true do |form| %>
@@ -14,7 +14,7 @@
 
       <div class="answer_name_wrapper" >
         <%= form.check_box :"check_name_#{virtual_user.id}", {class: "answer_name_check"}, "true", "false" %>名前
-        <%= form.text_field :"name_#{virtual_user.id}", :index => "#{virtual_user.id}", class: "answer_name", size: "80x10", placeholder: "名前\n\n" %>
+        <%= form.text_field :"name_#{virtual_user.id}", :index => "#{virtual_user.id}", class: "answer_name", size: "80x10", placeholder: "みょうじ　なまえ" %>
       </div>
 
       <div class="answer_address_wrapper" >

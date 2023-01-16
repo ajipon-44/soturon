@@ -6,28 +6,29 @@
 	<br>
   <% @virtual_users.each_with_index do |virtual_user, i| %>
     <p class="answer-label-title"><%= virtual_user.name %>の個人情報</p>
-    <div class="answer_belonging_wrapper" >
-      <%= @result[3 * i] == ["true"] ? "◯" : "×" %>学校(勤務先) あなたの解答:<%= @user_answer[i][0].blank? ? "無回答" : @user_answer[i][0] %> 答え:<%= virtual_user.belonging == nil ? "無回答" : virtual_user.belonging %>
-      <div>解説</div>
-			<%= virtual_user.belonging_explanation %>
-			<br>
-			<br>
-    </div>
-
-		<div class="answer_name_wrapper" >
-      <%= @result[3 * i + 1] == ["true"] ? "◯" : "×" %>名前 あなたの解答:<%= @user_answer[i][1].blank? ? "無回答" : @user_answer[i][1] %> 答え:<%= virtual_user.real_name == nil ? "無回答" : virtual_user.real_name %>
-      <div>解説</div>
-			<%= virtual_user.real_name_explanation %>
-			<br>
-			<br>
-    </div>
-
-	  <div class="answer_address_wrapper" >
-      <%= @result[3 * i + 2] == ["true"] ? "◯" : "×" %>住んでいる地域 あなたの解答:<%= @user_answer[i][2].blank? ? "無回答" : @user_answer[i][2] %> 答え:<%= virtual_user.address == nil ? "無回答" : virtual_user.address %>
-      <div>解説</div>
-			<%= virtual_user.address_explanation %>
-			<br>
-			<br>
-    </div>
+		<%= render 'answer',
+		  status: "belonging",
+			answer_info: "学校(勤務先)",
+			result: @result[3 * i],
+			user_answer: @user_answer[i][0],
+			virtual_user_info: virtual_user.belonging,
+			explanation: virtual_user.belonging_explanation
+		%>
+		<%= render 'answer',
+		  status: "name",
+			answer_info: "名前",
+			result: @result[3 * i + 1],
+			user_answer: @user_answer[i][1],
+			virtual_user_info: virtual_user.real_name,
+			explanation: virtual_user.real_name_explanation
+		%>
+		<%= render 'answer',
+		  status: "address",
+			answer_info: "住んでいる地域",
+			result: @result[3 * i + 2],
+			user_answer: @user_answer[i][2],
+			virtual_user_info: virtual_user.address,
+			explanation: virtual_user.address_explanation
+		%>
   <% end %>
 </div>

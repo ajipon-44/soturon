@@ -1,0 +1,7 @@
+<div class="answer_#{status}_wrapper" >
+  <%= result == ["true"] ? "◯" : "×" %><%= answer_info %> あなたの解答:<%= user_answer.blank? ? "無回答" : user_answer %> 答え:<%= virtual_user_info == nil ? "無回答" : virtual_user_info %>
+  <div>解説</div>
+	<%= explanation %>
+	<br>
+	<br>
+</div>
